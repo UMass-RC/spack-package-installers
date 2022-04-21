@@ -19,7 +19,7 @@ SPACK_PACKAGE_NAME="${lines[*]}"
 
 # install packages on new arch
 echo "Starting job for architecture $NEW_ARCH..."
-sbatch --job-name="build-${SPACK_PACKAGE_NAME}" --constraint=$i --output=logs/$SPACK_PACKAGE_NAME-$i-%j.out --export=SPACK_PACKAGE_NAME=$SPACK_PACKAGE_NAME slurm-install-batch.sh
+sbatch --job-name="newarch-${NEW_ARCH}" --constraint=$NEW_ARCH --output=logs/newarch-$NEW_ARCH-%j.out --export=SPACK_PACKAGE_NAME=$SPACK_PACKAGE_NAME slurm-install-batch.sh
 
 # add new arch to file, if not already there (shouldn't be from the first check)
 grep -qxF '${NEW_ARCH}' spack-arch-list || echo '${NEW_ARCH}' >> spack-arch-list
