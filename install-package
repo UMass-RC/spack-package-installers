@@ -1,0 +1,11 @@
+#!/bin/bash
+
+SPACK_PACKAGE_NAME=$1
+
+IFS=$'\n' read -d '' -r -a lines < spack-arch-list
+
+for i in "${lines[@]}"
+do
+    echo "Starting job for architecture $i..."
+    sbatch --job-name="build-${SPACK_PACKAGE_NAME}" --constraint=$i --output=logs/$SPACK_PACKAGE_NAME-$i-%j.out --export=SPACK_PACKAGE_NAME=$SPACK_PACKAGE_NAME slurm-install-batch.sh
+done
