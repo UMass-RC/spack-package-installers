@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# USAGE
+# ./install-package <spack package spec>
+
 SPACK_PACKAGE_NAME=$1
 
 IFS=$'\n' read -d '' -r -a lines < spack-arch-list
@@ -9,3 +12,6 @@ do
     echo "Starting job for architecture $i..."
     sbatch --job-name="build-${SPACK_PACKAGE_NAME}" --constraint=$i --output=logs/$SPACK_PACKAGE_NAME-$i-%j.out --export=SPACK_PACKAGE_NAME=$SPACK_PACKAGE_NAME slurm-install-batch.sh
 done
+
+# add to package file if not already there
+grep -qxF '${SPACK_PACKAGE_NAME}' installed_packages || echo '${SPACK_PACKAGE_NAME}' >> installed_packages

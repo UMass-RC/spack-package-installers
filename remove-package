@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# USAGE
+# ./remove-package <spack package spec>
+
+SPACK_PACKAGE_NAME=$1
+
+# uninstall all specs assicated with package name
+spack uninstall -a $SPACK_PACKAGE_NAME
+spack -y gc
+
+# remove line from installed_packages
+sed '/${SPACK_PACKAGE_NAME}/d' ./installed_packages
