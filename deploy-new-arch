@@ -3,6 +3,12 @@
 # USAGE
 # ./deploy-new-arch <spack defined architecture>
 
+existing_jobs=$(squeue -p building | wc -l)
+if [ "$existing_jobs" -gt "1" ]; then
+    echo "Operations under progress, unable to continue"
+    exit 1
+fi
+
 NEW_ARCH=$1
 
 if grep -Fxq "${NEW_ARCH}" spack-arch-list; then
