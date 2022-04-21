@@ -1,2 +1,3 @@
-# spack-package-installers
-Heterogeneous Unity cluster needs scripts to install for different microarchitectures
+# Spack Package Installers for Slurm Clusters #
+
+Provides helper scripts for dealing with heterogeneous cluster with lots of different spack architectures.
