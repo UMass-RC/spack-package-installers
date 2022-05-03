@@ -9,4 +9,3 @@ source /modules/spack/share/spack/setup-env.sh
 echo "Installing spack package ${SPACK_PACKAGE_NAME}..."
 
 spack install -y $SPACK_PACKAGE_NAME
-spack -y gc

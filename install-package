@@ -3,12 +3,6 @@
 # USAGE
 # ./install-package <spack package spec>
 
-existing_jobs=$(squeue -p building | wc -l)
-if [ "$existing_jobs" -gt "1" ]; then
-    echo "Operations under progress, unable to continue"
-    exit 1
-fi
-
 SPACK_PACKAGE_NAME=$1
 
 IFS=$'\n' read -d '' -r -a lines < spack-arch-list
@@ -17,7 +11,7 @@ for i in "${lines[@]}"
 do
     echo "Queuing job for architecture $i..."
 
-    sbatch --job-name="build-${SPACK_PACKAGE_NAME}" --constraint=$i --output=logs/$SPACK_PACKAGE_NAME-$i-%j.out --export=SPACK_PACKAGE_NAME=$SPACK_PACKAGE_NAME --dependency=singleton slurm-install-batch.sh
+    sbatch --job-name="build-${SPACK_PACKAGE_NAME}" --constraint=$i --output=logs/$SPACK_PACKAGE_NAME-$i-%j.out --export=SPACK_PACKAGE_NAME=$SPACK_PACKAGE_NAME slurm-install-batch.sh
 done
 
 # add to package file if not already there
