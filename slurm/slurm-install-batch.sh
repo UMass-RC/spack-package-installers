@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH -c 8  # Number of Cores per Task
-#SBATCH -t 12:00:00  # Job time limit
+#SBATCH -t 1-0  # Job time limit
 #SBATCH -p building
 
 echo "Loading spack environment..."

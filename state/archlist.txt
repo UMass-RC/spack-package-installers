@@ -3,3 +3,4 @@ linux-ubuntu20.04-zen2
 linux-ubuntu20.04-cascadelake
 linux-ubuntu20.04-zen
 linux-ubuntu20.04-haswell
+linux-ubuntu20.04-x86_64
