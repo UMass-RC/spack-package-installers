@@ -1,0 +1,693 @@
+Loading spack environment...
+spack --debug install --keep-stage -y openmpi +pmi schedulers=slurm ^cuda@11.6
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7
+[+] /usr (external libtool-2.4.6-kpnkr6jaoabqxhwr5ywqd4lloqrlcgub)
+==> [2022-08-03-20:20:56.853184] Installing pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx
+==> [2022-08-03-20:20:57.857681] No binary for pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx found: installing from source
+==> [2022-08-03-20:20:12.730196] Imported install from built-in commands
+==> [2022-08-03-20:20:12.733699] Reading config file /modules/spack/etc/spack/defaults/config.yaml
+==> [2022-08-03-20:20:12.752975] Imported install from built-in commands
+==> [2022-08-03-20:20:12.754479] Reading config file /modules/spack/etc/spack/defaults/bootstrap.yaml
+==> [2022-08-03-20:20:12.982797] Reading config file /modules/spack/etc/spack/defaults/config.yaml
+==> [2022-08-03-20:20:13.000976] DATABASE LOCK TIMEOUT: 3s
+==> [2022-08-03-20:20:13.001005] PACKAGE LOCK TIMEOUT: No timeout
+==> [2022-08-03-20:20:13.001263] Reading config file /modules/spack/etc/spack/defaults/bootstrap.yaml
+==> [2022-08-03-20:20:13.009245] DATABASE LOCK TIMEOUT: 3s
+==> [2022-08-03-20:20:13.009275] PACKAGE LOCK TIMEOUT: No timeout
+==> [2022-08-03-20:20:13.009311] [BOOTSTRAP CONFIG SCOPE] name=_builtin
+==> [2022-08-03-20:20:13.009558] [BOOTSTRAP CONFIG SCOPE] name=defaults, path=/modules/spack/etc/spack/defaults
+==> [2022-08-03-20:20:13.009581] [BOOTSTRAP CONFIG SCOPE] name=defaults/linux, path=/modules/spack/etc/spack/defaults/linux
+==> [2022-08-03-20:20:13.009599] [BOOTSTRAP CONFIG SCOPE] name=bootstrap, path=/home/simonleary_umass_edu/.spack/bootstrap/config
+==> [2022-08-03-20:20:13.009613] [BOOTSTRAP CONFIG SCOPE] name=bootstrap/linux, path=/home/simonleary_umass_edu/.spack/bootstrap/config/linux
+==> [2022-08-03-20:20:13.252352] Reading config file /home/simonleary_umass_edu/.spack/bootstrap/config/linux/compilers.yaml
+==> [2022-08-03-20:20:14.657729] [BOOTSTRAP ROOT SPEC] clingo-bootstrap@spack+python %gcc target=x86_64
+==> [2022-08-03-20:20:14.657806] [BOOTSTRAP MODULE clingo] Try importing from Python
+==> [2022-08-03-20:20:14.658135] Reading config file /modules/spack/etc/spack/defaults/bootstrap.yaml
+==> [2022-08-03-20:20:24.258036] Reading config file /modules/spack/etc/spack/defaults/config.yaml
+==> [2022-08-03-20:20:27.271911] '/usr/bin/python3.8' '-c' '
+import json
+from sysconfig import (
+    get_config_vars,
+    get_config_h_filename,
+    get_makefile_filename,
+    get_paths,
+)
+
+config = get_config_vars()
+config['"'"'config_h_filename'"'"'] = get_config_h_filename()
+config['"'"'makefile_filename'"'"'] = get_makefile_filename()
+config.update(get_paths())
+
+print(json.dumps(config))
+'
+==> [2022-08-03-20:20:28.709702] [BOOTSTRAP MODULE clingo] The installed spec "clingo-bootstrap@spack+python %gcc target=x86_64 ^python@3.8 /nt6npbwigjkxjp3wnshy7ldvqcgp4bcx" provides the "clingo" Python module
+==> [2022-08-03-20:20:28.711035] Reading config file /modules/spack/etc/spack/defaults/concretizer.yaml
+==> [2022-08-03-20:20:28.719160] Reading config file /modules/spack/etc/spack/defaults/repos.yaml
+==> [2022-08-03-20:20:28.721914] Reading config file /modules/spack/etc/spack/repos.yaml
+==> [2022-08-03-20:20:29.677824] Reading config file /modules/spack/etc/spack/defaults/config.yaml
+==> [2022-08-03-20:20:30.389931] Reading config file /modules/spack/etc/spack/defaults/mirrors.yaml
+==> [2022-08-03-20:20:38.186250] Reading config file /modules/spack/etc/spack/compilers.yaml
+==> [2022-08-03-20:20:38.279445] Reading config file /home/simonleary_umass_edu/.spack/linux/compilers.yaml
+==> [2022-08-03-20:20:38.415710] Reading config file /modules/spack/etc/spack/defaults/packages.yaml
+==> [2022-08-03-20:20:38.446899] Reading config file /modules/spack/etc/spack/packages.yaml
+==> [2022-08-03-20:20:38.533352] Reading config file /home/simonleary_umass_edu/.spack/packages.yaml
+==> [2022-08-03-20:20:54.514298] build(openmpi)
+==> [2022-08-03-20:20:54.514385] build(cuda)
+==> [2022-08-03-20:20:54.514404] build(hwloc)
+==> [2022-08-03-20:20:56.153811] Initializing the build queue from the build requests
+==> [2022-08-03-20:20:56.156031] Initializing the build queue for openmpi
+==> [2022-08-03-20:20:56.168667] Processing dependencies for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub: ('build', 'link', 'run')
+==> [2022-08-03-20:20:56.169408] Pkg id libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj has the following dependents:
+==> [2022-08-03-20:20:56.171118] - libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj
+==> [2022-08-03-20:20:56.178020] Requeueing a build task for libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj with status 'queued'
+==> [2022-08-03-20:20:56.196762] Pkg id xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf has the following dependents:
+==> [2022-08-03-20:20:56.196815] - libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj
+==> [2022-08-03-20:20:56.197739] Requeueing a build task for xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf with status 'queued'
+==> [2022-08-03-20:20:56.211861] Pkg id zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 has the following dependents:
+==> [2022-08-03-20:20:56.211914] - perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj
+==> [2022-08-03-20:20:56.211944] - openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub
+==> [2022-08-03-20:20:56.211971] - libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj
+==> [2022-08-03-20:20:56.212841] Requeueing a build task for zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 with status 'queued'
+==> [2022-08-03-20:20:56.229566] Pkg id libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj has the following dependents:
+==> [2022-08-03-20:20:56.229618] - cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26
+==> [2022-08-03-20:20:56.229648] - hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:20:56.230624] Requeueing a build task for libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj with status 'queued'
+==> [2022-08-03-20:20:56.244799] Pkg id cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 has the following dependents:
+==> [2022-08-03-20:20:56.244850] - hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:20:56.245754] Requeueing a build task for cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 with status 'queued'
+==> [2022-08-03-20:20:56.283226] Pkg id libtool-2.4.6-kpnkr6jaoabqxhwr5ywqd4lloqrlcgub has the following dependents:
+==> [2022-08-03-20:20:56.283285] - libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip
+==> [2022-08-03-20:20:56.283317] - numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm
+==> [2022-08-03-20:20:56.284189] Requeueing a build task for libtool-2.4.6-kpnkr6jaoabqxhwr5ywqd4lloqrlcgub with status 'queued'
+==> [2022-08-03-20:20:56.296917] Pkg id pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx has the following dependents:
+==> [2022-08-03-20:20:56.296962] - libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip
+==> [2022-08-03-20:20:56.297687] Requeueing a build task for pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx with status 'queued'
+==> [2022-08-03-20:20:56.311952] Pkg id util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut has the following dependents:
+==> [2022-08-03-20:20:56.312006] - libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip
+==> [2022-08-03-20:20:56.312873] Requeueing a build task for util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut with status 'queued'
+==> [2022-08-03-20:20:56.325387] Pkg id libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip has the following dependents:
+==> [2022-08-03-20:20:56.325440] - hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:20:56.326410] Requeueing a build task for libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip with status 'queued'
+==> [2022-08-03-20:20:56.340149] Pkg id ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje has the following dependents:
+==> [2022-08-03-20:20:56.340203] - hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:20:56.340235] - readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst
+==> [2022-08-03-20:20:56.341102] Requeueing a build task for ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje with status 'queued'
+==> [2022-08-03-20:20:56.352759] Pkg id pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi has the following dependents:
+==> [2022-08-03-20:20:56.352811] - hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:20:56.352841] - openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub
+==> [2022-08-03-20:20:56.353705] Requeueing a build task for pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi with status 'queued'
+==> [2022-08-03-20:20:56.366852] Pkg id hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 has the following dependents:
+==> [2022-08-03-20:20:56.366904] - openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub
+==> [2022-08-03-20:20:56.367929] Requeueing a build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 with status 'queued'
+==> [2022-08-03-20:20:56.389664] Pkg id autoconf-2.69-salndmd7yekuoppdjj5holndlr7ywmgi has the following dependents:
+==> [2022-08-03-20:20:56.389736] - numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm
+==> [2022-08-03-20:20:56.390707] Requeueing a build task for autoconf-2.69-salndmd7yekuoppdjj5holndlr7ywmgi with status 'queued'
+==> [2022-08-03-20:20:56.403673] Pkg id automake-1.16.1-a2w2slr6m53acohqytq36hi5hmjkuy2f has the following dependents:
+==> [2022-08-03-20:20:56.403742] - numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm
+==> [2022-08-03-20:20:56.404684] Requeueing a build task for automake-1.16.1-a2w2slr6m53acohqytq36hi5hmjkuy2f with status 'queued'
+==> [2022-08-03-20:20:56.428199] Pkg id m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf has the following dependents:
+==> [2022-08-03-20:20:56.428268] - numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm
+==> [2022-08-03-20:20:56.429207] Requeueing a build task for m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf with status 'queued'
+==> [2022-08-03-20:20:56.456590] Pkg id numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm has the following dependents:
+==> [2022-08-03-20:20:56.456666] - openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub
+==> [2022-08-03-20:20:56.457695] Requeueing a build task for numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm with status 'queued'
+==> [2022-08-03-20:20:56.477152] Pkg id openssh-8.2p1-z6ndq76x5do3fv5ug3nwci3k3fjkuhur has the following dependents:
+==> [2022-08-03-20:20:56.477208] - openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub
+==> [2022-08-03-20:20:56.478127] Requeueing a build task for openssh-8.2p1-z6ndq76x5do3fv5ug3nwci3k3fjkuhur with status 'queued'
+==> [2022-08-03-20:20:56.490563] Pkg id berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm has the following dependents:
+==> [2022-08-03-20:20:56.490620] - perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj
+==> [2022-08-03-20:20:56.491515] Requeueing a build task for berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm with status 'queued'
+==> [2022-08-03-20:20:56.503731] Pkg id bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77 has the following dependents:
+==> [2022-08-03-20:20:56.503784] - perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj
+==> [2022-08-03-20:20:56.504703] Requeueing a build task for bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77 with status 'queued'
+==> [2022-08-03-20:20:56.515966] Pkg id readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst has the following dependents:
+==> [2022-08-03-20:20:56.516019] - gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c
+==> [2022-08-03-20:20:56.516945] Requeueing a build task for readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst with status 'queued'
+==> [2022-08-03-20:20:56.529662] Pkg id gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c has the following dependents:
+==> [2022-08-03-20:20:56.529717] - perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj
+==> [2022-08-03-20:20:56.530706] Requeueing a build task for gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c with status 'queued'
+==> [2022-08-03-20:20:56.542436] Pkg id perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj has the following dependents:
+==> [2022-08-03-20:20:56.542489] - openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub
+==> [2022-08-03-20:20:56.543490] Requeueing a build task for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj with status 'queued'
+==> [2022-08-03-20:20:56.562270] Pkg id pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj has the following dependents:
+==> [2022-08-03-20:20:56.562331] - openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub
+==> [2022-08-03-20:20:56.563270] Requeueing a build task for pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj with status 'queued'
+==> [2022-08-03-20:20:56.586179] Pkg id slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7 has the following dependents:
+==> [2022-08-03-20:20:56.586240] - openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub
+==> [2022-08-03-20:20:56.587190] Requeueing a build task for slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7 with status 'queued'
+==> [2022-08-03-20:20:56.630133] Pkg id openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub has the following dependents:
+==> [2022-08-03-20:20:56.631288] Requeueing a build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub with status 'queued'
+==> [2022-08-03-20:20:56.631353] Ensure all dependencies know all dependents across specs
+==> [2022-08-03-20:20:56.640631] Processing libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:20:56.652017] Acquiring a write lock on libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj with timeout 1e-09
+==> [2022-08-03-20:20:56.657488] Failed to acquire a write lock for libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj due to LockTimeoutError: Timed out waiting for a write lock.
+==> [2022-08-03-20:20:56.657571] Acquiring a read lock on libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj with timeout 3
+==> [2022-08-03-20:20:56.660504] libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj is now read locked
+==> [2022-08-03-20:20:56.699193] Creating stage lock spack-stage-libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj
+==> [2022-08-03-20:20:56.699845] Flagging libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj as installed
+==> [2022-08-03-20:20:56.699907] Removing libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj from libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj's uninstalled dependencies.
+==> [2022-08-03-20:20:56.699997] libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj: Removed libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj from uninstalled deps list: {'xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf', 'zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7'}
+==> [2022-08-03-20:20:56.700040] Removing build task for libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj from list
+==> [2022-08-03-20:20:56.700075] Requeueing a build task for libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj with status 'queued'
+==> [2022-08-03-20:20:56.700224] Processing xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:20:56.714973] Acquiring a write lock on xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf with timeout 1e-09
+==> [2022-08-03-20:20:56.717352] Failed to acquire a write lock for xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf due to LockTimeoutError: Timed out waiting for a write lock.
+==> [2022-08-03-20:20:56.717431] Acquiring a read lock on xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf with timeout 3
+==> [2022-08-03-20:20:56.718463] xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf is now read locked
+==> [2022-08-03-20:20:56.746283] Creating stage lock spack-stage-xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf
+==> [2022-08-03-20:20:56.747206] Flagging xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf as installed
+==> [2022-08-03-20:20:56.747266] Removing xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf from libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj's uninstalled dependencies.
+==> [2022-08-03-20:20:56.747332] libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj: Removed xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf from uninstalled deps list: {'zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7'}
+==> [2022-08-03-20:20:56.747375] Removing build task for libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj from list
+==> [2022-08-03-20:20:56.747410] Requeueing a build task for libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj with status 'queued'
+==> [2022-08-03-20:20:56.747550] Processing zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:20:56.770482] Acquiring a write lock on zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 with timeout 1e-09
+==> [2022-08-03-20:20:56.773546] Failed to acquire a write lock for zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 due to LockTimeoutError: Timed out waiting for a write lock.
+==> [2022-08-03-20:20:56.773623] Acquiring a read lock on zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 with timeout 3
+==> [2022-08-03-20:20:56.774833] zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 is now read locked
+==> [2022-08-03-20:20:56.795804] Creating stage lock spack-stage-zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7
+==> [2022-08-03-20:20:56.796674] Flagging zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 as installed
+==> [2022-08-03-20:20:56.796730] Removing zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 from perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj's uninstalled dependencies.
+==> [2022-08-03-20:20:56.796792] perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj: Removed zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 from uninstalled deps list: {'gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c', 'berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm', 'bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77'}
+==> [2022-08-03-20:20:56.796832] Removing build task for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj from list
+==> [2022-08-03-20:20:56.796864] Requeueing a build task for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj with status 'queued'
+==> [2022-08-03-20:20:56.796896] Removing zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 from openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub's uninstalled dependencies.
+==> [2022-08-03-20:20:56.796946] openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub: Removed zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 from uninstalled deps list: {'hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5', 'perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj', 'openssh-8.2p1-z6ndq76x5do3fv5ug3nwci3k3fjkuhur', 'numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm', 'slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7', 'pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj', 'pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi'}
+==> [2022-08-03-20:20:56.796985] Removing build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub from list
+==> [2022-08-03-20:20:56.797014] Requeueing a build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub with status 'queued'
+==> [2022-08-03-20:20:56.797045] Removing zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 from libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj's uninstalled dependencies.
+==> [2022-08-03-20:20:56.797088] libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj: Removed zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7 from uninstalled deps list: set()
+==> [2022-08-03-20:20:56.797121] Removing build task for libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj from list
+==> [2022-08-03-20:20:56.797149] Requeueing a build task for libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj with status 'queued'
+==> [2022-08-03-20:20:56.797281] Processing libtool-2.4.6-kpnkr6jaoabqxhwr5ywqd4lloqrlcgub: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:20:56.797335] libtool@2.4.6 : externally installed in /usr
+==> [2022-08-03-20:20:56.797370] libtool@2.4.6 : already registered in DB
+==> [2022-08-03-20:20:56.797439] Flagging libtool-2.4.6-kpnkr6jaoabqxhwr5ywqd4lloqrlcgub as installed
+==> [2022-08-03-20:20:56.797473] Removing libtool-2.4.6-kpnkr6jaoabqxhwr5ywqd4lloqrlcgub from libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip's uninstalled dependencies.
+==> [2022-08-03-20:20:56.797524] libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip: Removed libtool-2.4.6-kpnkr6jaoabqxhwr5ywqd4lloqrlcgub from uninstalled deps list: {'util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut', 'pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx'}
+==> [2022-08-03-20:20:56.797561] Removing build task for libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip from list
+==> [2022-08-03-20:20:56.797591] Requeueing a build task for libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip with status 'queued'
+==> [2022-08-03-20:20:56.797622] Removing libtool-2.4.6-kpnkr6jaoabqxhwr5ywqd4lloqrlcgub from numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm's uninstalled dependencies.
+==> [2022-08-03-20:20:56.797668] numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm: Removed libtool-2.4.6-kpnkr6jaoabqxhwr5ywqd4lloqrlcgub from uninstalled deps list: {'m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf', 'autoconf-2.69-salndmd7yekuoppdjj5holndlr7ywmgi', 'automake-1.16.1-a2w2slr6m53acohqytq36hi5hmjkuy2f'}
+==> [2022-08-03-20:20:56.797702] Removing build task for numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm from list
+==> [2022-08-03-20:20:56.797730] Requeueing a build task for numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm with status 'queued'
+==> [2022-08-03-20:20:56.797814] Processing pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:20:56.809824] Acquiring a write lock on pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx with timeout 1e-09
+==> [2022-08-03-20:20:56.814741] pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx is now write locked
+==> [2022-08-03-20:20:56.852439] Creating stage lock spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx
+==> [2022-08-03-20:20:56.853245] Searching for binary cache of pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx
+==> [2022-08-03-20:20:57.857218] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx.spec.json.sig
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:20:57.857296] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx.spec.json
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:20:57.857337] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx.spec.yaml
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:20:57.857829] Creating the installation directory /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx
+==> [2022-08-03-20:20:57.902276] '/usr/bin/git' '-C' '/modules/spack' 'rev-parse' 'HEAD'
+==> [2022-08-03-20:20:59.014344] Using cached archive: /modules/spack/var/spack/cache/_source-cache/archive/ef/ef9c7e61822b7cb8356e6e9e1dca58d9556f3200d78acab35e4347e9d4c2bbaf.tar.xz
+==> [2022-08-03-20:21:00.046797] No patches needed for pkgconf
+==> [2022-08-03-20:20:58.857703] [TOOLCHAIN] MATCH Gcc
+==> [2022-08-03-20:20:58.861515] Adding compiler bin/ paths: /modules/spack/lib/spack/env /modules/spack/lib/spack/env/case-insensitive /modules/spack/lib/spack/env/gcc
+==> [2022-08-03-20:20:58.875297] A dependency has updated CPATH, this may lead pkg-config to assume that the package is part of the system includes and omit it when invoked with '--cflags'.
+==> [2022-08-03-20:20:58.885158] '/usr/bin/g++' '-v' '/scratch/zhoulin-cpu001/3219560/spack-implicit-link-info4hql7q2b/main.c' '-o' '/scratch/zhoulin-cpu001/3219560/spack-implicit-link-info4hql7q2b/output'
+==> [2022-08-03-20:20:58.993899] parsing implicit link info
+==> [2022-08-03-20:20:58.994425] linker line:  /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/scratch/zhoulin-cpu001/3219560/ccaFplLe.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o /scratch/zhoulin-cpu001/3219560/spack-implicit-link-info4hql7q2b/output /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. /scratch/zhoulin-cpu001/3219560/cceGLJud.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+==> [2022-08-03-20:20:58.994541] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9
+==> [2022-08-03-20:20:58.994578] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu
+==> [2022-08-03-20:20:58.994619] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib
+==> [2022-08-03-20:20:58.994648] linkdir: /lib/x86_64-linux-gnu
+==> [2022-08-03-20:20:58.994676] linkdir: /lib/../lib
+==> [2022-08-03-20:20:58.994703] linkdir: /usr/lib/x86_64-linux-gnu
+==> [2022-08-03-20:20:58.994730] linkdir: /usr/lib/../lib
+==> [2022-08-03-20:20:58.994757] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../..
+==> [2022-08-03-20:20:58.994813] found raw link dirs: /usr/lib/gcc/x86_64-linux-gnu/9, /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu, /usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib, /lib/x86_64-linux-gnu, /lib/../lib, /usr/lib/x86_64-linux-gnu, /usr/lib/../lib, /usr/lib/gcc/x86_64-linux-gnu/9/../../..
+==> [2022-08-03-20:20:58.994919] found link dirs: /usr/lib/gcc/x86_64-linux-gnu/9, /usr/lib/x86_64-linux-gnu, /usr/lib, /lib/x86_64-linux-gnu, /lib
+==> [2022-08-03-20:20:59.016959] Staging archive: /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/pkgconf-1.8.0.tar.xz
+==> [2022-08-03-20:20:59.021420] '/usr/bin/tar' '-oxf' '/scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/pkgconf-1.8.0.tar.xz'
+==> [2022-08-03-20:21:00.042172] Created stage in /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx
+==> [2022-08-03-20:21:00.046888] pkgconf: Building pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx [AutotoolsPackage]
+==> [2022-08-03-20:21:00.079674] pkgconf: Executing phase: 'autoreconf'
+==> [2022-08-03-20:21:00.102987] pkgconf: Executing phase: 'configure'
+==> [2022-08-03-20:21:08.795830] pkgconf: Executing phase: 'build'
+==> [2022-08-03-20:21:11.741215] pkgconf: Executing phase: 'install'
+==> [2022-08-03-20:21:12.305964] FileNotFoundError: [Errno 2] No such file or directory: '/modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/repos'
+==> [2022-08-03-20:21:12.306874] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/spack-build-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/spack-build-out.txt
+==> [2022-08-03-20:21:12.325442] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/spack-build-01-autoreconf-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/spack-build-01-autoreconf-out.txt
+==> [2022-08-03-20:21:12.345462] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/spack-build-02-configure-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/spack-build-02-configure-out.txt
+==> [2022-08-03-20:21:12.361836] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/spack-build-03-build-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/spack-build-03-build-out.txt
+==> [2022-08-03-20:21:12.376740] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/spack-build-04-install-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/spack-build-04-install-out.txt
+==> [2022-08-03-20:21:12.395361] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/spack-build-env-mods.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/spack-build-env.txt
+==> [2022-08-03-20:21:12.411976] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/spack-configure-args.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/spack-configure-args.txt
+==> [2022-08-03-20:21:12.460394] Installing spack-src/config.log to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/archived-files/spack-src/config.log
+==> [2022-08-03-20:21:12.480803] Installing spack-src/removed_la_files.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/archived-files/spack-src/removed_la_files.txt
+==> [2022-08-03-20:21:12.541645] Installing /modules/spack/var/spack/repos/builtin/packages/pkgconf/nvhpc.patch to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/repos/builtin/packages/pkgconf
+==> [2022-08-03-20:21:12.564291] Installing /modules/spack/var/spack/repos/builtin/packages/pkgconf/package.py to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx/.spack/repos/builtin/packages/pkgconf
+==> [2022-08-03-20:21:12.594782] Reading config file /modules/spack/etc/spack/defaults/modules.yaml
+==> [2022-08-03-20:21:12.612624] Reading config file /modules/spack/etc/spack/defaults/linux/modules.yaml
+==> [2022-08-03-20:21:12.617015] Reading config file /modules/spack/etc/spack/modules.yaml
+==> [2022-08-03-20:21:12.802746] Warning: Module file /modules/spack/share/spack/modules/linux-ubuntu20.04-zen2/pkgconf/1.8.0 exists and will not be overwritten
+==> [2022-08-03-20:21:12.802866] NO MODULE WRITTEN: list of enabled module files is empty
+==> [2022-08-03-20:21:13.082877] Writing manifest file: No manifest from binary
+==> [2022-08-03-20:21:13.152735] pkgconf: Successfully installed pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx
+  Fetch: 0.01s.  Build: 13.57s.  Total: 13.58s.
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx
+==> [2022-08-03-20:21:13.646416] Installing util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut
+==> [2022-08-03-20:21:14.641464] No binary for util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut found: installing from source
+==> [2022-08-03-20:21:13.570825] Flagging pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx as installed
+==> [2022-08-03-20:21:13.570925] Removing pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx from libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip's uninstalled dependencies.
+==> [2022-08-03-20:21:13.571031] libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip: Removed pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx from uninstalled deps list: {'util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut'}
+==> [2022-08-03-20:21:13.571077] Removing build task for libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip from list
+==> [2022-08-03-20:21:13.571113] Requeueing a build task for libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip with status 'queued'
+==> [2022-08-03-20:21:13.571209] Downgrading to a read lock on pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx with timeout 1e-09
+==> [2022-08-03-20:21:13.573574] pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx is now read locked
+==> [2022-08-03-20:21:13.573764] Processing util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:13.600107] Acquiring a write lock on util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut with timeout 1e-09
+==> [2022-08-03-20:21:13.607187] util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut is now write locked
+==> [2022-08-03-20:21:13.645661] Creating stage lock spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut
+==> [2022-08-03-20:21:13.646480] Searching for binary cache of util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut
+==> [2022-08-03-20:21:14.641048] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut.spec.json.sig
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:21:14.641126] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut.spec.json
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:21:14.641164] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut.spec.yaml
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:21:14.641608] Creating the installation directory /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut
+==> [2022-08-03-20:21:14.679672] '/usr/bin/git' '-C' '/modules/spack' 'rev-parse' 'HEAD'
+==> [2022-08-03-20:21:15.391321] Using cached archive: /modules/spack/var/spack/cache/_source-cache/archive/0f/0f812e6e9d2786ba8f54b960ee563c0663ddbe2434bf24ff193f5feab1f31971.tar.bz2
+==> [2022-08-03-20:21:15.553308] No patches needed for util-macros
+==> [2022-08-03-20:21:15.197285] [TOOLCHAIN] MATCH Gcc
+==> [2022-08-03-20:21:15.200495] Adding compiler bin/ paths: /modules/spack/lib/spack/env /modules/spack/lib/spack/env/case-insensitive /modules/spack/lib/spack/env/gcc
+==> [2022-08-03-20:21:15.235057] A dependency has updated CPATH, this may lead pkg-config to assume that the package is part of the system includes and omit it when invoked with '--cflags'.
+==> [2022-08-03-20:21:15.243025] '/usr/bin/g++' '-v' '/scratch/zhoulin-cpu001/3219560/spack-implicit-link-infoiu6v2fn1/main.c' '-o' '/scratch/zhoulin-cpu001/3219560/spack-implicit-link-infoiu6v2fn1/output'
+==> [2022-08-03-20:21:15.364237] parsing implicit link info
+==> [2022-08-03-20:21:15.364752] linker line:  /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/scratch/zhoulin-cpu001/3219560/ccK9fdxv.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o /scratch/zhoulin-cpu001/3219560/spack-implicit-link-infoiu6v2fn1/output /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. /scratch/zhoulin-cpu001/3219560/ccCA860u.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+==> [2022-08-03-20:21:15.364871] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9
+==> [2022-08-03-20:21:15.364909] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu
+==> [2022-08-03-20:21:15.364948] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib
+==> [2022-08-03-20:21:15.364978] linkdir: /lib/x86_64-linux-gnu
+==> [2022-08-03-20:21:15.365005] linkdir: /lib/../lib
+==> [2022-08-03-20:21:15.365034] linkdir: /usr/lib/x86_64-linux-gnu
+==> [2022-08-03-20:21:15.365062] linkdir: /usr/lib/../lib
+==> [2022-08-03-20:21:15.365098] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../..
+==> [2022-08-03-20:21:15.365153] found raw link dirs: /usr/lib/gcc/x86_64-linux-gnu/9, /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu, /usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib, /lib/x86_64-linux-gnu, /lib/../lib, /usr/lib/x86_64-linux-gnu, /usr/lib/../lib, /usr/lib/gcc/x86_64-linux-gnu/9/../../..
+==> [2022-08-03-20:21:15.365264] found link dirs: /usr/lib/gcc/x86_64-linux-gnu/9, /usr/lib/x86_64-linux-gnu, /usr/lib, /lib/x86_64-linux-gnu, /lib
+==> [2022-08-03-20:21:15.393200] Staging archive: /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/util-macros-1.19.3.tar.bz2
+==> [2022-08-03-20:21:15.400043] '/usr/bin/tar' '-oxf' '/scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/util-macros-1.19.3.tar.bz2'
+==> [2022-08-03-20:21:15.549890] Created stage in /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut
+==> [2022-08-03-20:21:15.553399] util-macros: Building util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut [AutotoolsPackage]
+==> [2022-08-03-20:21:15.585863] util-macros: Executing phase: 'autoreconf'
+==> [2022-08-03-20:21:15.611966] util-macros: Executing phase: 'configure'
+==> [2022-08-03-20:21:17.813158] util-macros: Executing phase: 'build'
+==> [2022-08-03-20:21:17.854874] util-macros: Executing phase: 'install'
+==> [2022-08-03-20:21:17.987040] FileNotFoundError: [Errno 2] No such file or directory: '/modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/repos'
+==> [2022-08-03-20:21:17.988069] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/spack-build-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/spack-build-out.txt
+==> [2022-08-03-20:21:18.005604] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/spack-build-01-autoreconf-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/spack-build-01-autoreconf-out.txt
+==> [2022-08-03-20:21:18.019531] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/spack-build-02-configure-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/spack-build-02-configure-out.txt
+==> [2022-08-03-20:21:18.036396] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/spack-build-03-build-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/spack-build-03-build-out.txt
+==> [2022-08-03-20:21:18.051041] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/spack-build-04-install-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/spack-build-04-install-out.txt
+==> [2022-08-03-20:21:18.066714] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/spack-build-env-mods.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/spack-build-env.txt
+==> [2022-08-03-20:21:18.084394] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/spack-configure-args.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/spack-configure-args.txt
+==> [2022-08-03-20:21:18.113888] Installing spack-src/config.log to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/archived-files/spack-src/config.log
+==> [2022-08-03-20:21:18.132293] Installing spack-src/removed_la_files.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/archived-files/spack-src/removed_la_files.txt
+==> [2022-08-03-20:21:18.200281] Installing /modules/spack/var/spack/repos/builtin/packages/util-macros/package.py to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut/.spack/repos/builtin/packages/util-macros
+==> [2022-08-03-20:21:18.227133] Reading config file /modules/spack/etc/spack/defaults/modules.yaml
+==> [2022-08-03-20:21:18.245595] Reading config file /modules/spack/etc/spack/defaults/linux/modules.yaml
+==> [2022-08-03-20:21:18.248639] Reading config file /modules/spack/etc/spack/modules.yaml
+==> [2022-08-03-20:21:19.107446] Warning: Module file /modules/spack/share/spack/modules/linux-ubuntu20.04-zen2/util-macros/1.19.3 exists and will not be overwritten
+==> [2022-08-03-20:21:19.107587] NO MODULE WRITTEN: list of enabled module files is empty
+==> [2022-08-03-20:21:19.293820] Writing manifest file: No manifest from binary
+==> [2022-08-03-20:21:19.346705] util-macros: Successfully installed util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut
+  Fetch: 0.01s.  Build: 2.83s.  Total: 2.84s.
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi
+[+] /usr (external autoconf-2.69-salndmd7yekuoppdjj5holndlr7ywmgi)
+[+] /usr (external automake-1.16.1-a2w2slr6m53acohqytq36hi5hmjkuy2f)
+[+] /usr (external m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf)
+[+] /usr (external openssh-8.2p1-z6ndq76x5do3fv5ug3nwci3k3fjkuhur)
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77
+[+] /usr/lib/x86_64-linux-gnu/pmix/ (external pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj)
+[+] /usr (external slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7)
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm
+==> [2022-08-03-20:21:20.601199] Installing cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26
+==> [2022-08-03-20:21:21.589125] No binary for cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 found: installing from source
+==> [2022-08-03-20:21:20.067410] Flagging util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut as installed
+==> [2022-08-03-20:21:20.067517] Removing util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut from libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip's uninstalled dependencies.
+==> [2022-08-03-20:21:20.067621] libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip: Removed util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut from uninstalled deps list: set()
+==> [2022-08-03-20:21:20.067663] Removing build task for libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip from list
+==> [2022-08-03-20:21:20.067699] Requeueing a build task for libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip with status 'queued'
+==> [2022-08-03-20:21:20.067795] Downgrading to a read lock on util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut with timeout 1e-09
+==> [2022-08-03-20:21:20.069667] util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut is now read locked
+==> [2022-08-03-20:21:20.069856] Processing ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.095626] Acquiring a write lock on ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje with timeout 1e-09
+==> [2022-08-03-20:21:20.099599] Failed to acquire a write lock for ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje due to LockTimeoutError: Timed out waiting for a write lock.
+==> [2022-08-03-20:21:20.099680] Acquiring a read lock on ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje with timeout 3
+==> [2022-08-03-20:21:20.100849] ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje is now read locked
+==> [2022-08-03-20:21:20.140428] Creating stage lock spack-stage-ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje
+==> [2022-08-03-20:21:20.140999] Flagging ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje as installed
+==> [2022-08-03-20:21:20.141054] Removing ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje from hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5's uninstalled dependencies.
+==> [2022-08-03-20:21:20.141123] hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5: Removed ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje from uninstalled deps list: {'cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26', 'libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip', 'libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj', 'pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi'}
+==> [2022-08-03-20:21:20.141163] Removing build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 from list
+==> [2022-08-03-20:21:20.141198] Requeueing a build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 with status 'queued'
+==> [2022-08-03-20:21:20.141230] Removing ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje from readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst's uninstalled dependencies.
+==> [2022-08-03-20:21:20.141277] readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst: Removed ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje from uninstalled deps list: set()
+==> [2022-08-03-20:21:20.141311] Removing build task for readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst from list
+==> [2022-08-03-20:21:20.141342] Requeueing a build task for readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst with status 'queued'
+==> [2022-08-03-20:21:20.141494] Processing pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.177436] Acquiring a write lock on pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi with timeout 1e-09
+==> [2022-08-03-20:21:20.181749] pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi is now write locked
+==> [2022-08-03-20:21:20.212003] Creating stage lock spack-stage-pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi
+==> [2022-08-03-20:21:20.212508] Flagging pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi as installed
+==> [2022-08-03-20:21:20.212560] Removing pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi from hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5's uninstalled dependencies.
+==> [2022-08-03-20:21:20.212621] hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5: Removed pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi from uninstalled deps list: {'cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26', 'libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip', 'libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj'}
+==> [2022-08-03-20:21:20.212660] Removing build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 from list
+==> [2022-08-03-20:21:20.212691] Requeueing a build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 with status 'queued'
+==> [2022-08-03-20:21:20.212722] Removing pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi from openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub's uninstalled dependencies.
+==> [2022-08-03-20:21:20.212773] openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub: Removed pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi from uninstalled deps list: {'hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5', 'perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj', 'openssh-8.2p1-z6ndq76x5do3fv5ug3nwci3k3fjkuhur', 'numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm', 'slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7', 'pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj'}
+==> [2022-08-03-20:21:20.212812] Removing build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub from list
+==> [2022-08-03-20:21:20.212841] Requeueing a build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub with status 'queued'
+==> [2022-08-03-20:21:20.212899] Downgrading to a read lock on pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi with timeout 1e-09
+==> [2022-08-03-20:21:20.214209] pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi is now read locked
+==> [2022-08-03-20:21:20.214352] Processing autoconf-2.69-salndmd7yekuoppdjj5holndlr7ywmgi: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.214408] autoconf@2.69 : externally installed in /usr
+==> [2022-08-03-20:21:20.214442] autoconf@2.69 : already registered in DB
+==> [2022-08-03-20:21:20.214510] Flagging autoconf-2.69-salndmd7yekuoppdjj5holndlr7ywmgi as installed
+==> [2022-08-03-20:21:20.214544] Removing autoconf-2.69-salndmd7yekuoppdjj5holndlr7ywmgi from numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm's uninstalled dependencies.
+==> [2022-08-03-20:21:20.214598] numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm: Removed autoconf-2.69-salndmd7yekuoppdjj5holndlr7ywmgi from uninstalled deps list: {'m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf', 'automake-1.16.1-a2w2slr6m53acohqytq36hi5hmjkuy2f'}
+==> [2022-08-03-20:21:20.214634] Removing build task for numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm from list
+==> [2022-08-03-20:21:20.214664] Requeueing a build task for numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm with status 'queued'
+==> [2022-08-03-20:21:20.214758] Processing automake-1.16.1-a2w2slr6m53acohqytq36hi5hmjkuy2f: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.214807] automake@1.16.1 : externally installed in /usr
+==> [2022-08-03-20:21:20.214840] automake@1.16.1 : already registered in DB
+==> [2022-08-03-20:21:20.214906] Flagging automake-1.16.1-a2w2slr6m53acohqytq36hi5hmjkuy2f as installed
+==> [2022-08-03-20:21:20.214939] Removing automake-1.16.1-a2w2slr6m53acohqytq36hi5hmjkuy2f from numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm's uninstalled dependencies.
+==> [2022-08-03-20:21:20.214989] numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm: Removed automake-1.16.1-a2w2slr6m53acohqytq36hi5hmjkuy2f from uninstalled deps list: {'m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf'}
+==> [2022-08-03-20:21:20.215023] Removing build task for numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm from list
+==> [2022-08-03-20:21:20.215052] Requeueing a build task for numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm with status 'queued'
+==> [2022-08-03-20:21:20.215143] Processing m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.215192] m4@1.4.18 : externally installed in /usr
+==> [2022-08-03-20:21:20.215225] m4@1.4.18 : already registered in DB
+==> [2022-08-03-20:21:20.215289] Flagging m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf as installed
+==> [2022-08-03-20:21:20.215322] Removing m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf from numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm's uninstalled dependencies.
+==> [2022-08-03-20:21:20.215388] numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm: Removed m4-1.4.18-r4b2uf6bovdidjlk4lzvg6tqtangnvrf from uninstalled deps list: set()
+==> [2022-08-03-20:21:20.215423] Removing build task for numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm from list
+==> [2022-08-03-20:21:20.215453] Requeueing a build task for numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm with status 'queued'
+==> [2022-08-03-20:21:20.215541] Processing openssh-8.2p1-z6ndq76x5do3fv5ug3nwci3k3fjkuhur: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.215589] openssh@8.2p1 : externally installed in /usr
+==> [2022-08-03-20:21:20.215621] openssh@8.2p1 : already registered in DB
+==> [2022-08-03-20:21:20.215686] Flagging openssh-8.2p1-z6ndq76x5do3fv5ug3nwci3k3fjkuhur as installed
+==> [2022-08-03-20:21:20.215720] Removing openssh-8.2p1-z6ndq76x5do3fv5ug3nwci3k3fjkuhur from openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub's uninstalled dependencies.
+==> [2022-08-03-20:21:20.215772] openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub: Removed openssh-8.2p1-z6ndq76x5do3fv5ug3nwci3k3fjkuhur from uninstalled deps list: {'hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5', 'perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj', 'numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm', 'slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7', 'pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj'}
+==> [2022-08-03-20:21:20.215809] Removing build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub from list
+==> [2022-08-03-20:21:20.215840] Requeueing a build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub with status 'queued'
+==> [2022-08-03-20:21:20.215931] Processing berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.232226] Acquiring a write lock on berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm with timeout 1e-09
+==> [2022-08-03-20:21:20.235690] berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm is now write locked
+==> [2022-08-03-20:21:20.282453] Creating stage lock spack-stage-berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm
+==> [2022-08-03-20:21:20.282971] Flagging berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm as installed
+==> [2022-08-03-20:21:20.283024] Removing berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm from perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj's uninstalled dependencies.
+==> [2022-08-03-20:21:20.283083] perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj: Removed berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm from uninstalled deps list: {'gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c', 'bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77'}
+==> [2022-08-03-20:21:20.283120] Removing build task for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj from list
+==> [2022-08-03-20:21:20.283151] Requeueing a build task for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj with status 'queued'
+==> [2022-08-03-20:21:20.283210] Downgrading to a read lock on berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm with timeout 1e-09
+==> [2022-08-03-20:21:20.297685] berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm is now read locked
+==> [2022-08-03-20:21:20.297828] Processing bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.323266] Acquiring a write lock on bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77 with timeout 1e-09
+==> [2022-08-03-20:21:20.326998] bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77 is now write locked
+==> [2022-08-03-20:21:20.346505] Creating stage lock spack-stage-bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77
+==> [2022-08-03-20:21:20.347669] Flagging bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77 as installed
+==> [2022-08-03-20:21:20.347722] Removing bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77 from perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj's uninstalled dependencies.
+==> [2022-08-03-20:21:20.347780] perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj: Removed bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77 from uninstalled deps list: {'gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c'}
+==> [2022-08-03-20:21:20.347817] Removing build task for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj from list
+==> [2022-08-03-20:21:20.347848] Requeueing a build task for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj with status 'queued'
+==> [2022-08-03-20:21:20.347906] Downgrading to a read lock on bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77 with timeout 1e-09
+==> [2022-08-03-20:21:20.349744] bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77 is now read locked
+==> [2022-08-03-20:21:20.349860] Processing pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.349904] pmix@3.1.5-1 : externally installed in /usr/lib/x86_64-linux-gnu/pmix/
+==> [2022-08-03-20:21:20.349932] pmix@3.1.5-1 : already registered in DB
+==> [2022-08-03-20:21:20.349990] Flagging pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj as installed
+==> [2022-08-03-20:21:20.350018] Removing pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj from openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub's uninstalled dependencies.
+==> [2022-08-03-20:21:20.350076] openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub: Removed pmix-3.1.5-1-b6ycu3mca7smg2i5vvnjt3gidqtzumkj from uninstalled deps list: {'hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5', 'perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj', 'numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm', 'slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7'}
+==> [2022-08-03-20:21:20.350109] Removing build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub from list
+==> [2022-08-03-20:21:20.350134] Requeueing a build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub with status 'queued'
+==> [2022-08-03-20:21:20.350217] Processing slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7: task=priority=0, status=dequeued, start=0, #dependencies=0
+==> [2022-08-03-20:21:20.350259] slurm@20.02.7 : externally installed in /usr
+==> [2022-08-03-20:21:20.350286] slurm@20.02.7 : already registered in DB
+==> [2022-08-03-20:21:20.350343] Flagging slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7 as installed
+==> [2022-08-03-20:21:20.350371] Removing slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7 from openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub's uninstalled dependencies.
+==> [2022-08-03-20:21:20.350415] openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub: Removed slurm-20.02.7-re4j6wjo2xnukgqh5ufg5lxclnz52te7 from uninstalled deps list: {'hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5', 'perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj', 'numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm'}
+==> [2022-08-03-20:21:20.350445] Removing build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub from list
+==> [2022-08-03-20:21:20.350470] Requeueing a build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub with status 'queued'
+==> [2022-08-03-20:21:20.350550] Processing libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj: task=priority=0, status=dequeued, start=1659558056.6999776, #dependencies=3
+==> [2022-08-03-20:21:20.370157] Acquiring a write lock on libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj with timeout 1e-09
+==> [2022-08-03-20:21:20.374684] libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj is now write locked
+==> [2022-08-03-20:21:20.393805] Creating stage lock spack-stage-libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj
+==> [2022-08-03-20:21:20.393983] Creating stage lock resource-xmlts-i7nsnmeeeukas6sc2rqa6adykxtky4yj
+==> [2022-08-03-20:21:20.394744] Flagging libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj as installed
+==> [2022-08-03-20:21:20.394800] Removing libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj from cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26's uninstalled dependencies.
+==> [2022-08-03-20:21:20.394859] cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26: Removed libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj from uninstalled deps list: set()
+==> [2022-08-03-20:21:20.394893] Removing build task for cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 from list
+==> [2022-08-03-20:21:20.394937] Requeueing a build task for cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 with status 'queued'
+==> [2022-08-03-20:21:20.394972] Removing libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj from hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5's uninstalled dependencies.
+==> [2022-08-03-20:21:20.395022] hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5: Removed libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj from uninstalled deps list: {'cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26', 'libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip'}
+==> [2022-08-03-20:21:20.395057] Removing build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 from list
+==> [2022-08-03-20:21:20.395087] Requeueing a build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 with status 'queued'
+==> [2022-08-03-20:21:20.395144] Downgrading to a read lock on libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj with timeout 1e-09
+==> [2022-08-03-20:21:20.396756] libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj is now read locked
+==> [2022-08-03-20:21:20.396895] Processing libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip: task=priority=0, status=dequeued, start=1659558056.7975123, #dependencies=3
+==> [2022-08-03-20:21:20.411821] Acquiring a write lock on libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip with timeout 1e-09
+==> [2022-08-03-20:21:20.419479] libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip is now write locked
+==> [2022-08-03-20:21:20.441642] Creating stage lock spack-stage-libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip
+==> [2022-08-03-20:21:20.442121] Flagging libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip as installed
+==> [2022-08-03-20:21:20.442174] Removing libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip from hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5's uninstalled dependencies.
+==> [2022-08-03-20:21:20.442233] hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5: Removed libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip from uninstalled deps list: {'cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26'}
+==> [2022-08-03-20:21:20.442271] Removing build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 from list
+==> [2022-08-03-20:21:20.442302] Requeueing a build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 with status 'queued'
+==> [2022-08-03-20:21:20.442360] Downgrading to a read lock on libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip with timeout 1e-09
+==> [2022-08-03-20:21:20.443653] libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip is now read locked
+==> [2022-08-03-20:21:20.443798] Processing readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst: task=priority=0, status=dequeued, start=1659558080.1412678, #dependencies=1
+==> [2022-08-03-20:21:20.458084] Acquiring a write lock on readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst with timeout 1e-09
+==> [2022-08-03-20:21:20.468108] readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst is now write locked
+==> [2022-08-03-20:21:20.489977] Creating stage lock spack-stage-readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst
+==> [2022-08-03-20:21:20.491889] Flagging readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst as installed
+==> [2022-08-03-20:21:20.491944] Removing readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst from gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c's uninstalled dependencies.
+==> [2022-08-03-20:21:20.491994] gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c: Removed readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst from uninstalled deps list: set()
+==> [2022-08-03-20:21:20.492024] Removing build task for gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c from list
+==> [2022-08-03-20:21:20.492050] Requeueing a build task for gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c with status 'queued'
+==> [2022-08-03-20:21:20.492100] Downgrading to a read lock on readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst with timeout 1e-09
+==> [2022-08-03-20:21:20.493791] readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst is now read locked
+==> [2022-08-03-20:21:20.493908] Processing numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm: task=priority=0, status=dequeued, start=1659558056.7976568, #dependencies=4
+==> [2022-08-03-20:21:20.510975] Acquiring a write lock on numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm with timeout 1e-09
+==> [2022-08-03-20:21:20.515275] numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm is now write locked
+==> [2022-08-03-20:21:20.544965] Creating stage lock spack-stage-numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm
+==> [2022-08-03-20:21:20.545421] Flagging numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm as installed
+==> [2022-08-03-20:21:20.545473] Removing numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm from openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub's uninstalled dependencies.
+==> [2022-08-03-20:21:20.545533] openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub: Removed numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm from uninstalled deps list: {'hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5', 'perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj'}
+==> [2022-08-03-20:21:20.545572] Removing build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub from list
+==> [2022-08-03-20:21:20.545603] Requeueing a build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub with status 'queued'
+==> [2022-08-03-20:21:20.545661] Downgrading to a read lock on numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm with timeout 1e-09
+==> [2022-08-03-20:21:20.547472] numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm is now read locked
+==> [2022-08-03-20:21:20.547620] Processing cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26: task=priority=0, status=dequeued, start=1659558080.394846, #dependencies=1
+==> [2022-08-03-20:21:20.561572] Acquiring a write lock on cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 with timeout 1e-09
+==> [2022-08-03-20:21:20.564722] cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 is now write locked
+==> [2022-08-03-20:21:20.600509] Creating stage lock spack-stage-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26
+==> [2022-08-03-20:21:20.601262] Searching for binary cache of cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26
+==> [2022-08-03-20:21:21.588708] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26.spec.json.sig
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:21:21.588787] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26.spec.json
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:21:21.588828] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26.spec.yaml
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:21:21.589265] Creating the installation directory /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26
+==> [2022-08-03-20:21:21.656573] '/usr/bin/git' '-C' '/modules/spack' 'rev-parse' 'HEAD'
+==> [2022-08-03-20:21:23.237474] Fetching https://mirror.spack.io/_source-cache/archive/99/99b7a73dcc52a52cef4c1fceb4a60c3015ac9b6404082c1677d9efdaba1d4593
+==> [2022-08-03-20:21:52.092072] No patches needed for cuda
+==> [2022-08-03-20:21:22.789373] [TOOLCHAIN] MATCH Gcc
+==> [2022-08-03-20:21:22.792788] Adding compiler bin/ paths: /modules/spack/lib/spack/env /modules/spack/lib/spack/env/case-insensitive /modules/spack/lib/spack/env/gcc
+==> [2022-08-03-20:21:22.974379] A dependency has updated CPATH, this may lead pkg-config to assume that the package is part of the system includes and omit it when invoked with '--cflags'.
+==> [2022-08-03-20:21:22.991246] '/usr/bin/g++' '-v' '/scratch/zhoulin-cpu001/3219560/spack-implicit-link-infoplzf16zw/main.c' '-o' '/scratch/zhoulin-cpu001/3219560/spack-implicit-link-infoplzf16zw/output'
+==> [2022-08-03-20:21:23.160003] parsing implicit link info
+==> [2022-08-03-20:21:23.160550] linker line:  /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/scratch/zhoulin-cpu001/3219560/cceNCrDQ.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o /scratch/zhoulin-cpu001/3219560/spack-implicit-link-infoplzf16zw/output /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. /scratch/zhoulin-cpu001/3219560/cczVu7QN.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+==> [2022-08-03-20:21:23.160681] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9
+==> [2022-08-03-20:21:23.160722] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu
+==> [2022-08-03-20:21:23.160755] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib
+==> [2022-08-03-20:21:23.160785] linkdir: /lib/x86_64-linux-gnu
+==> [2022-08-03-20:21:23.160814] linkdir: /lib/../lib
+==> [2022-08-03-20:21:23.160843] linkdir: /usr/lib/x86_64-linux-gnu
+==> [2022-08-03-20:21:23.160872] linkdir: /usr/lib/../lib
+==> [2022-08-03-20:21:23.160900] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../..
+==> [2022-08-03-20:21:23.160960] found raw link dirs: /usr/lib/gcc/x86_64-linux-gnu/9, /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu, /usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib, /lib/x86_64-linux-gnu, /lib/../lib, /usr/lib/x86_64-linux-gnu, /usr/lib/../lib, /usr/lib/gcc/x86_64-linux-gnu/9/../../..
+==> [2022-08-03-20:21:23.161070] found link dirs: /usr/lib/gcc/x86_64-linux-gnu/9, /usr/lib/x86_64-linux-gnu, /usr/lib, /lib/x86_64-linux-gnu, /lib
+==> [2022-08-03-20:21:23.190926] Checking existence of https://mirror.spack.io/_source-cache/archive/99/99b7a73dcc52a52cef4c1fceb4a60c3015ac9b6404082c1677d9efdaba1d4593
+==> [2022-08-03-20:21:52.074665] Staging unexpanded archive /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/cuda_11.6.2_510.47.03_linux.run in /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/spack-src
+==> [2022-08-03-20:21:52.088734] Created stage in /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26
+==> [2022-08-03-20:21:52.092145] cuda: Building cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 [Package]
+==> [2022-08-03-20:21:52.137351] cuda: Executing phase: 'install'
+==> [2022-08-03-20:26:32.757037] FileNotFoundError: [Errno 2] No such file or directory: '/modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/.spack/repos'
+==> [2022-08-03-20:26:32.758039] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/spack-build-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/.spack/spack-build-out.txt
+==> [2022-08-03-20:26:32.790277] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/spack-build-01-install-out.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/.spack/spack-build-01-install-out.txt
+==> [2022-08-03-20:26:32.821805] Installing /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/spack-build-env-mods.txt to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/.spack/spack-build-env.txt
+==> [2022-08-03-20:26:32.956186] Installing /modules/spack/var/spack/repos/builtin/packages/cuda/package.py to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/.spack/repos/builtin/packages/cuda
+==> [2022-08-03-20:26:33.006477] Installing /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj/.spack/repos/builtin/packages/libxml2 to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/.spack/repos/builtin/packages/libxml2
+==> [2022-08-03-20:26:33.179501] Installing /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj/.spack/repos/builtin/packages/libiconv to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/.spack/repos/builtin/packages/libiconv
+==> [2022-08-03-20:26:33.287424] Installing /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf/.spack/repos/builtin/packages/xz to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/.spack/repos/builtin/packages/xz
+==> [2022-08-03-20:26:33.375732] Installing /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7/.spack/repos/builtin/packages/zlib to /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26/.spack/repos/builtin/packages/zlib
+==> [2022-08-03-20:26:33.561657] Reading config file /modules/spack/etc/spack/defaults/modules.yaml
+==> [2022-08-03-20:26:33.586310] Reading config file /modules/spack/etc/spack/defaults/linux/modules.yaml
+==> [2022-08-03-20:26:33.590959] Reading config file /modules/spack/etc/spack/modules.yaml
+==> [2022-08-03-20:26:33.956045] 	WRITE: cuda@11.6.2%gcc@9.4.0~allow-unsupported-compilers~dev arch=linux-ubuntu20.04-zen2/wna3qgp [/modules/spack/share/spack/modules/linux-ubuntu20.04-zen2/cuda/11.6.2]
+==> [2022-08-03-20:26:34.461325] NO MODULE WRITTEN: list of enabled module files is empty
+==> [2022-08-03-20:27:03.083817] Writing manifest file: No manifest from binary
+==> [2022-08-03-20:27:30.708055] cuda: Successfully installed cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26
+  Fetch: 14.14s.  Build: 4m 56.17s.  Total: 5m 10.31s.
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c
+==> [2022-08-03-20:27:31.475654] Installing hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:27:32.521477] No binary for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 found: installing from source
+==> [2022-08-03-20:27:31.368072] Flagging cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 as installed
+==> [2022-08-03-20:27:31.368166] Removing cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 from hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5's uninstalled dependencies.
+==> [2022-08-03-20:27:31.368260] hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5: Removed cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 from uninstalled deps list: set()
+==> [2022-08-03-20:27:31.368296] Removing build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 from list
+==> [2022-08-03-20:27:31.368326] Requeueing a build task for hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 with status 'queued'
+==> [2022-08-03-20:27:31.368412] Downgrading to a read lock on cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 with timeout 1e-09
+==> [2022-08-03-20:27:31.370390] cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26 is now read locked
+==> [2022-08-03-20:27:31.370546] Processing gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c: task=priority=0, status=dequeued, start=1659558080.4919832, #dependencies=1
+==> [2022-08-03-20:27:31.397092] Acquiring a write lock on gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c with timeout 1e-09
+==> [2022-08-03-20:27:31.403350] gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c is now write locked
+==> [2022-08-03-20:27:31.424905] Creating stage lock spack-stage-gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c
+==> [2022-08-03-20:27:31.425449] Flagging gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c as installed
+==> [2022-08-03-20:27:31.425493] Removing gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c from perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj's uninstalled dependencies.
+==> [2022-08-03-20:27:31.425545] perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj: Removed gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c from uninstalled deps list: set()
+==> [2022-08-03-20:27:31.425575] Removing build task for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj from list
+==> [2022-08-03-20:27:31.425604] Requeueing a build task for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj with status 'queued'
+==> [2022-08-03-20:27:31.425653] Downgrading to a read lock on gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c with timeout 1e-09
+==> [2022-08-03-20:27:31.427073] gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c is now read locked
+==> [2022-08-03-20:27:31.427212] Processing hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5: task=priority=0, status=dequeued, start=1659558080.1411045, #dependencies=5
+==> [2022-08-03-20:27:31.441096] Acquiring a write lock on hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 with timeout 1e-09
+==> [2022-08-03-20:27:31.445122] hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 is now write locked
+==> [2022-08-03-20:27:31.475022] Creating stage lock spack-stage-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:27:31.475710] Searching for binary cache of hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:27:32.521010] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5.spec.json.sig
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:27:32.521106] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5.spec.json
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:27:32.521154] Did not find linux-ubuntu20.04-zen2-gcc-9.4.0-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5.spec.json on https://mirror.spack.io/build_cache/linux-ubuntu20.04-zen2-gcc-9.4.0-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5.spec.yaml
+  Download failed: HTTP Error 404: Not Found
+==> [2022-08-03-20:27:32.521627] Creating the installation directory /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:27:32.563970] '/usr/bin/git' '-C' '/modules/spack' 'rev-parse' 'HEAD'
+==> [2022-08-03-20:27:35.517937] Using cached archive: /modules/spack/var/spack/cache/_source-cache/archive/4c/4cb0a781ed980b03ad8c48beb57407aa67c4b908e45722954b9730379bc7f6d5.tar.gz
+==> [2022-08-03-20:27:47.137519] No patches needed for hwloc
+==> [2022-08-03-20:27:34.437196] [TOOLCHAIN] MATCH Gcc
+==> [2022-08-03-20:27:34.440956] Adding compiler bin/ paths: /modules/spack/lib/spack/env /modules/spack/lib/spack/env/case-insensitive /modules/spack/lib/spack/env/gcc
+==> [2022-08-03-20:27:35.294651] A dependency has updated CPATH, this may lead pkg-config to assume that the package is part of the system includes and omit it when invoked with '--cflags'.
+==> [2022-08-03-20:27:35.326981] '/usr/bin/g++' '-v' '/scratch/zhoulin-cpu001/3219560/spack-implicit-link-infoefwo_v9q/main.c' '-o' '/scratch/zhoulin-cpu001/3219560/spack-implicit-link-infoefwo_v9q/output'
+==> [2022-08-03-20:27:35.484694] parsing implicit link info
+==> [2022-08-03-20:27:35.485191] linker line:  /usr/lib/gcc/x86_64-linux-gnu/9/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/9/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/9/lto-wrapper -plugin-opt=-fresolution=/scratch/zhoulin-cpu001/3219560/ccV3Hdiv.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o /scratch/zhoulin-cpu001/3219560/spack-implicit-link-infoefwo_v9q/output /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/9/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/9 -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/9/../../.. /scratch/zhoulin-cpu001/3219560/ccCd55Mv.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/9/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu/crtn.o
+==> [2022-08-03-20:27:35.485287] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9
+==> [2022-08-03-20:27:35.485325] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu
+==> [2022-08-03-20:27:35.485356] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib
+==> [2022-08-03-20:27:35.485384] linkdir: /lib/x86_64-linux-gnu
+==> [2022-08-03-20:27:35.485411] linkdir: /lib/../lib
+==> [2022-08-03-20:27:35.485438] linkdir: /usr/lib/x86_64-linux-gnu
+==> [2022-08-03-20:27:35.485464] linkdir: /usr/lib/../lib
+==> [2022-08-03-20:27:35.485491] linkdir: /usr/lib/gcc/x86_64-linux-gnu/9/../../..
+==> [2022-08-03-20:27:35.485546] found raw link dirs: /usr/lib/gcc/x86_64-linux-gnu/9, /usr/lib/gcc/x86_64-linux-gnu/9/../../../x86_64-linux-gnu, /usr/lib/gcc/x86_64-linux-gnu/9/../../../../lib, /lib/x86_64-linux-gnu, /lib/../lib, /usr/lib/x86_64-linux-gnu, /usr/lib/../lib, /usr/lib/gcc/x86_64-linux-gnu/9/../../..
+==> [2022-08-03-20:27:35.485650] found link dirs: /usr/lib/gcc/x86_64-linux-gnu/9, /usr/lib/x86_64-linux-gnu, /usr/lib, /lib/x86_64-linux-gnu, /lib
+==> [2022-08-03-20:27:35.526734] Staging archive: /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5/hwloc-2.7.1.tar.gz
+==> [2022-08-03-20:27:35.531732] '/usr/bin/tar' '-oxf' '/scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5/hwloc-2.7.1.tar.gz'
+==> [2022-08-03-20:27:47.135879] Created stage in /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:27:47.137587] hwloc: Building hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 [AutotoolsPackage]
+==> [2022-08-03-20:27:47.175320] hwloc: Executing phase: 'autoreconf'
+==> [2022-08-03-20:27:47.203136] hwloc: Executing phase: 'configure'
+==> [2022-08-03-20:28:16.322347] Error: ProcessError: Command exited with status 1:
+    '/scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5/spack-src/configure' '--prefix=/modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5' '--disable-opencl' '--disable-rsmi' '--disable-cairo' '--enable-nvml' '--disable-gl' '--disable-cuda' '--enable-libxml2' '--disable-libudev' '--enable-pci' '--enable-shared'
+
+1 error found in build log:
+     254    **** NVML configuration
+     255    checking for nvml.h... yes
+     256    checking for nvmlInit in -lnvidia-ml... no
+     257    **** end of NVML configuration
+     258    configure: WARNING: Specified --enable-nvml switch, but could not
+     259    configure: WARNING: find appropriate support
+  >> 260    configure: error: Cannot continue
+
+See build log for details:
+  /scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5/spack-build-out.txt
+
+Traceback (most recent call last):
+  File "/modules/spack/lib/spack/spack/build_environment.py", line 1060, in _setup_pkg_and_run
+    return_value = function(pkg, kwargs)
+  File "/modules/spack/lib/spack/spack/installer.py", line 2012, in build_process
+    return installer.run()
+  File "/modules/spack/lib/spack/spack/installer.py", line 1866, in run
+    self._real_install()
+  File "/modules/spack/lib/spack/spack/installer.py", line 1973, in _real_install
+    phase(pkg.spec, pkg.prefix)
+  File "/modules/spack/lib/spack/spack/package.py", line 139, in phase_wrapper
+    phase(spec, prefix)
+  File "/modules/spack/lib/spack/spack/build_systems/autotools.py", line 422, in configure
+    inspect.getmodule(self).configure(*options)
+  File "/modules/spack/lib/spack/spack/util/executable.py", line 239, in __call__
+    raise ProcessError('Command exited with status %d:' %
+spack.util.executable.ProcessError: Command exited with status 1:
+    '/scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5/spack-src/configure' '--prefix=/modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5' '--disable-opencl' '--disable-rsmi' '--disable-cairo' '--enable-nvml' '--disable-gl' '--disable-cuda' '--enable-libxml2' '--disable-libudev' '--enable-pci' '--enable-shared'
+==> [2022-08-03-20:28:16.357430] Flagging hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 as failed: ProcessError: Command exited with status 1:
+    '/scratch/zhoulin-cpu001/3219560/simonleary_umass_edu/spack-stage/spack-stage-hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5/spack-src/configure' '--prefix=/modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5' '--disable-opencl' '--disable-rsmi' '--disable-cairo' '--enable-nvml' '--disable-gl' '--disable-cuda' '--enable-libxml2' '--disable-libudev' '--enable-pci' '--enable-shared'
+==> [2022-08-03-20:28:16.413057] Warning: Skipping build of openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub since hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 failed
+==> [2022-08-03-20:28:16.413120] Flagging openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub as failed
+==> [2022-08-03-20:28:16.457831] Removing build task for openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub from list
+==> [2022-08-03-20:28:16.689532] Downgrading to a read lock on hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 with timeout 1e-09
+==> [2022-08-03-20:28:16.692249] hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5 is now read locked
+==> [2022-08-03-20:28:16.692438] Processing perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj: task=priority=0, status=dequeued, start=1659558056.796777, #dependencies=4
+==> [2022-08-03-20:28:16.718825] Acquiring a write lock on perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj with timeout 1e-09
+==> [2022-08-03-20:28:16.729332] perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj is now write locked
+==> [2022-08-03-20:28:16.756222] Creating stage lock spack-stage-perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj
+==> [2022-08-03-20:28:16.756426] Creating stage lock resource-cpanm-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj
+==> [2022-08-03-20:28:16.757333] Flagging perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj as installed
+==> [2022-08-03-20:28:16.757395] Removing perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj from openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub's uninstalled dependencies.
+==> [2022-08-03-20:28:16.757433] openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub has no build task to update for perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj's success
+==> [2022-08-03-20:28:16.757489] Downgrading to a read lock on perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj with timeout 1e-09
+==> [2022-08-03-20:28:16.763333] perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj is now read locked
+==> [2022-08-03-20:28:16.763505] Releasing read lock on libiconv-1.16-xa6oobihv7qsbf743iq5g3ioyriyjxwj
+==> [2022-08-03-20:28:16.767670] Releasing read lock on xz-5.2.5-wfweai2jkkplgry3aqkfb5fqg44fuxtf
+==> [2022-08-03-20:28:16.771126] Releasing read lock on zlib-1.2.11-un5j7szis72ayqdk4yzjlp6vkjrcbtn7
+==> [2022-08-03-20:28:16.774129] Releasing read lock on pkgconf-1.8.0-gaijnvwky462jrlwqbkq4cmgwbztjfbx
+==> [2022-08-03-20:28:16.775849] Releasing read lock on util-macros-1.19.3-sztwkx52eimaviztdfekxnkp7n45bhut
+==> [2022-08-03-20:28:16.779996] Releasing read lock on ncurses-6.2-7gqxys4ftsjqajquyez3ozyuydadcxje
+==> [2022-08-03-20:28:16.782519] Releasing read lock on pkgconf-1.8.0-inzw3ktz62f6lgzt5rro7v4oj7w3h6oi
+==> [2022-08-03-20:28:16.784910] Releasing read lock on berkeley-db-18.1.40-3b5x3qgoiiz6fwg3qee76vlqkjftavmm
+==> [2022-08-03-20:28:16.788540] Releasing read lock on bzip2-1.0.8-wun2j2vayvxcsnnk4fng47dhyyrnuu77
+==> [2022-08-03-20:28:16.790728] Releasing read lock on libxml2-2.9.12-i7nsnmeeeukas6sc2rqa6adykxtky4yj
+==> [2022-08-03-20:28:16.793196] Releasing read lock on libpciaccess-0.16-ku3jhsvoqfxkk2pvh5maxwu4uvqfv4ip
+==> [2022-08-03-20:28:16.794496] Releasing read lock on readline-8.1-pk7qiwymktle4r3xoskqjexjrxbgytst
+==> [2022-08-03-20:28:16.796856] Releasing read lock on numactl-2.0.14-6q7odygifssuvrfgigdlcb4osytsrxnm
+==> [2022-08-03-20:28:16.799367] Releasing read lock on cuda-11.6.2-wna3qgpimcppglnxkrxqtqrjpqboon26
+==> [2022-08-03-20:28:16.800875] Releasing read lock on gdbm-1.19-lindkwg3oq7xi4bzoqhicqf4lsw5rj3c
+==> [2022-08-03-20:28:16.802554] Releasing read lock on hwloc-2.7.1-pgmtrwbdjpq5lcmueemeba3adcn7nvv5
+==> [2022-08-03-20:28:16.804208] Releasing read lock on perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj
+==> [2022-08-03-20:28:16.807839] Error: openmpi-4.1.3-wdez633at4hrqsgxxlynd3nvwqbsmaub: Package was not installed
+==> [2022-08-03-20:28:16.807969] InstallError: Installation request failed.  Refer to reported errors for failing package(s).
+==> [2022-08-03-20:28:16.808010] Error: Installation request failed.  Refer to reported errors for failing package(s).
+Traceback (most recent call last):
+  File "/modules/spack/lib/spack/spack/main.py", line 893, in main
+    return _main(argv)
+  File "/modules/spack/lib/spack/spack/main.py", line 848, in _main
+    return finish_parse_and_run(parser, cmd_name, env_format_error)
+  File "/modules/spack/lib/spack/spack/main.py", line 876, in finish_parse_and_run
+    return _invoke_command(command, parser, args, unknown)
+  File "/modules/spack/lib/spack/spack/main.py", line 533, in _invoke_command
+    return_val = command(parser, args)
+  File "/modules/spack/lib/spack/spack/cmd/install.py", line 470, in install
+    install_specs(args, kwargs, zip(abstract_specs, specs))
+  File "/modules/spack/lib/spack/spack/cmd/install.py", line 266, in install_specs
+    builder.install()
+  File "/modules/spack/lib/spack/spack/installer.py", line 1777, in install
+    raise InstallError('Installation request failed.  Refer to '
+spack.installer.InstallError: Installation request failed.  Refer to reported errors for failing package(s).
+[+] /modules/spack/opt/spack/linux-ubuntu20.04-zen2/gcc-9.4.0/perl-5.34.0-iaa4jl7vlqhkzjsgx6lwy37hnuno64xj

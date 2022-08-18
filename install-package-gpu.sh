@@ -17,15 +17,9 @@ for i in "${lines[@]}"
 do
     echo "Queuing job for architecture $i..."
     sbatch --job-name="$JOB_NAME" --constraint=$i --output=logs/$JOB_NAME-$i.out \
-	    --export=SPACK_PACKAGE_NAME="$SPACK_PACKAGE_NAME" slurm/slurm-install-batch.sh
+	    --export=SPACK_PACKAGE_NAME="$SPACK_PACKAGE_NAME" slurm/slurm-install-batch-gpu.sh
     echo log file: logs/$JOB_NAME-$i.out
 done
 
-# TODO use -d to make another job dependent on all these which can let me know when they are done
 # add to package file if not already there
-# TODO only if jobs were a success
 grep -qxF "$SPACK_PACKAGE_NAME" state/packagelist.txt || echo $SPACK_PACKAGE_NAME >> state/packagelist.txt
-
-# TODO never use spack gc it's broken, use Simon's Lmod hiding script and then Simon's lmod_regen_modfiles alias
-# finished submitting jobs
-#echo "Remember to run spack gc afterwards to remove excess build dependencies"
