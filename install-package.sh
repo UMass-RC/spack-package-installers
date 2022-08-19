@@ -28,6 +28,7 @@ done
 echo
 echo "this might take a while. You can break out of this script and the installs will continue,"
 echo "but you will have to check by hand that the installs were successful, and do the post install cleanup by hand."
+echo "use tmux to detach a session and let it run in the background."
 echo
 
 ANY_FAILURES=0
@@ -49,7 +50,7 @@ done
 
 echo $ANY_FAILURES
 echo $ANY_SUCCESSES
-if [ $ANY_FAILURES -eq 1 ] & [ $ANY_SUCCESSES -eq 1 ]; then
+if [ $ANY_FAILURES -eq 1 ] && [ $ANY_SUCCESSES -eq 1 ]; then
     echo "ACTION REQUIRED"
     echo "some installs succeeded but some failed! You will have to clean this up by hand."
 fi
