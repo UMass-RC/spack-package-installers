@@ -11,21 +11,24 @@ HARD_MODULEPATH="/modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64:/mo
 
 SPACK_INSTALL_ARGS=$@
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
-START_DT=$(date +"%Y-%m-%d-%T")
+START_DT=$(date +"%Y-%m-%d-%H-%M-%S")
 
 NUM_JOBS=0
 for arch in $(<state/archlist.txt); do
     LOG_FILE="logs/${JOB_NAME}_${arch}_${START_DT}.out"
-    echo "install # $(( $NUM_JOBS+1 )): Queuing job for architecture $arch..."
+    echo "install #$(( $NUM_JOBS+1 )): Queuing job for architecture $arch..."
     echo $LOG_FILE
     sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
             --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" slurm/slurm-install-batch.sh\
-            & # & means run this in the background
+            &\ # & means run this in the background
+            > /dev/null
     ((NUM_JOBS++))
 done
 
+echo
 echo "this might take a while. You can break out of this script and the installs will continue,"
 echo "but you will have to check by hand that the installs were successful."
+echo
 
 ANY_FAILURES=0
 for ((i=1; i<($NUM_JOBS+1); i++)); do
