@@ -48,5 +48,5 @@ fi
 grep -qxF "$SPACK_INSTALL_ARGS" state/packagelist.txt || echo $SPACK_INSTALL_ARGS >> state/packagelist.txt
 echo "regenerating Lmod spider cache using hard-coded modulepath. This may change someday!"
 echo $HARD_MODULEPATH
-# TODO hide implicit modules
+./hide-implicit-mods.py
 /modules/lmod/lmod/lmod/libexec/update_lmod_system_cache_files -d /modules/lmod/cache $HARD_MODULEPATH
