@@ -27,7 +27,7 @@ done
 
 echo
 echo "this might take a while. You can break out of this script and the installs will continue,"
-echo "but you will have to check by hand that the installs were successful."
+echo "but you will have to check by hand that the installs were successful, and do the post install cleanup by hand."
 echo
 
 ANY_FAILURES=0
@@ -47,6 +47,7 @@ if [ $ANY_FAILURES -eq 1 ]; then
     exit 1
 fi
 
+# post install cleanup
 grep -qxF "$SPACK_INSTALL_ARGS" state/packagelist.txt || echo $SPACK_INSTALL_ARGS >> state/packagelist.txt
 echo "regenerating Lmod spider cache using hard-coded modulepath. This may change someday!"
 echo $HARD_MODULEPATH
