@@ -48,8 +48,6 @@ for ((i=1; i<($NUM_JOBS+1); i++)); do
     fi
 done
 
-echo $ANY_FAILURES
-echo $ANY_SUCCESSES
 if [ $ANY_FAILURES -eq 1 ] && [ $ANY_SUCCESSES -eq 1 ]; then
     echo "ACTION REQUIRED"
     echo "some installs succeeded but some failed! You will have to clean this up by hand."
