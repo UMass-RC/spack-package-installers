@@ -5,6 +5,7 @@
 
 echo jobid $SLURM_JOB_ID on host $(hostname) with arch $(/modules/spack/bin/spack arch) by user $(whoami) on $(date)
 
+source /etc/profile # will this make my installs go to the proper architectures?
 echo "Loading spack environment..."
 source /modules/spack/share/spack/setup-env.sh
 

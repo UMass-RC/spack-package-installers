@@ -1,5 +1,8 @@
 #!/bin/bash
 
+echo $EXTRA_SBATCH_ARGS # debug
+exit
+
 # USAGE
 # ./install-package <spack package spec>
 
@@ -20,8 +23,8 @@ for arch in $(<state/archlist.txt); do
     LOG_FILE="logs/${JOB_NAME}_${arch}_${RANDOM_STR}.out" # random so that logs don't overwrite
     echo "install #$(( $NUM_JOBS+1 )): $LOG_FILE"
     sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
-            --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" slurm/slurm-install-batch.sh\
-            & # & means run this in the background
+            --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" ${EXTRA_SBATCH_ARGS}\
+            slurm/slurm-install-batch.sh & # & means run this in the background
     ((NUM_JOBS++))
 done
 
