@@ -47,10 +47,10 @@ if [ $ANY_FAILURES -eq 1 ]; then
     exit 1
 fi
 
+# add spack args to the packagelist
 grep -qxF "$SPACK_INSTALL_ARGS" state/packagelist.txt || echo $SPACK_INSTALL_ARGS >> state/packagelist.txt
-echo "regenerating Lmod spider cache using hard-coded modulepath. This may change someday!"
-echo $HARD_MODULEPATH
 # remove implicit (dependent) modules from `module av`
 ./hide-implicit-mods.py
-# update the Lmod spider cache
+echo "regenerating Lmod spider cache using hard-coded modulepath. This may change someday!"
+echo $HARD_MODULEPATH
 /modules/lmod/lmod/lmod/libexec/update_lmod_system_cache_files -d /modules/lmod/cache $HARD_MODULEPATH
