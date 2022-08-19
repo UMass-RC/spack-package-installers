@@ -11,11 +11,11 @@ HARD_MODULEPATH="/modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64:/mo
 
 SPACK_INSTALL_ARGS=$@
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
-START_DT=$(date +"%Y-%m-%d-%H-%M-%S")
+RANDOM_STR=$( echo $RANDOM | md5sum | head -c 5; echo;)
 
 NUM_JOBS=0
 for arch in $(<state/archlist.txt); do
-    LOG_FILE="logs/${START_DT}_${JOB_NAME}_${arch}.out"
+    LOG_FILE="logs/${JOB_NAME}_${arch}_${RANDOM_STR}.out" # random so that logs don't overwrite
     echo "install #$(( $NUM_JOBS+1 )): $LOG_FILE"
     sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
             --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" slurm/slurm-install-batch.sh\
@@ -33,6 +33,7 @@ for ((i=1; i<($NUM_JOBS+1); i++)); do
     # wait %i -> get the return code for background process i
     # multiple waits called in sequence will run in parallel
     # the background processes are indexed starting at 1
+    # if a job is held up in the queue then the `wait`s after it won't start until it gets out
     wait %$i
     if [ ! $? -eq 0 ]; then
         echo "install #$i has failed!"
