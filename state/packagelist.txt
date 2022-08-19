@@ -143,3 +143,5 @@ openmpi+pmi+legacylaunchers
 openmpi+pmi+legacylaunchers schedulers=slurm
 openmpi+pmi+legacylaunchers+cuda schedulers=slurm
 openmpi+pmi+cuda schedulers=slurm
+openmpi+cuda
+

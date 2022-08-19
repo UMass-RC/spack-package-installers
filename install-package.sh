@@ -3,10 +3,6 @@
 # USAGE
 # ./install-package <spack package spec>
 
-# despite that this modulepath only includes x86_64,
-# it seems to update the cache for other microarches as well
-HARD_MODULEPATH="/modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64:/modules/modulefiles"
-
 SPACK_INSTALL_ARGS=$@
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
 RANDOM_STR=$( echo $RANDOM | md5sum | head -c 5; echo;)
