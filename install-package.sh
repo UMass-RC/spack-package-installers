@@ -13,6 +13,10 @@ SPACK_INSTALL_ARGS=$@
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
 RANDOM_STR=$( echo $RANDOM | md5sum | head -c 5; echo;)
 
+echo "Loading spack environment..."
+source /modules/spack/share/spack/setup-env.sh
+echo
+
 NUM_JOBS=0
 for arch in $(<state/archlist.txt); do
     LOG_FILE="logs/${JOB_NAME}_${arch}_${RANDOM_STR}.out" # random so that logs don't overwrite
