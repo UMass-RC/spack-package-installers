@@ -16,8 +16,7 @@ START_DT=$(date +"%Y-%m-%d-%H-%M-%S")
 NUM_JOBS=0
 for arch in $(<state/archlist.txt); do
     LOG_FILE="logs/${JOB_NAME}_${arch}_${START_DT}.out"
-    echo "install #$(( $NUM_JOBS+1 )): Queuing job for architecture $arch..."
-    echo $LOG_FILE
+    echo "install #$(( $NUM_JOBS+1 )): $LOG_FILE"
     sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
             --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" slurm/slurm-install-batch.sh\
             & # & means run this in the background
@@ -36,7 +35,7 @@ for ((i=1; i<($NUM_JOBS+1); i++)); do
     # the background processes are indexed starting at 1
     wait %$i
     if [ ! $? -eq 0 ]; then
-        echo "install # $i has failed!"
+        echo "install #$i has failed!"
         ANY_FAILURES=1
     fi
 done
