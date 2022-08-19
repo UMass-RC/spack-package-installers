@@ -1,8 +1,5 @@
 #!/bin/bash
 
-echo $EXTRA_SBATCH_ARGS # debug
-exit
-
 # USAGE
 # ./install-package <spack package spec>
 
