@@ -20,8 +20,7 @@ for arch in $(<state/archlist.txt); do
     echo $LOG_FILE
     sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
             --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" slurm/slurm-install-batch.sh\
-            &\ # & means run this in the background
-            > /dev/null
+            & # & means run this in the background
     ((NUM_JOBS++))
 done
 
