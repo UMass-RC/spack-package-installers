@@ -15,7 +15,7 @@ START_DT=$(date +"%Y-%m-%d-%H-%M-%S")
 
 NUM_JOBS=0
 for arch in $(<state/archlist.txt); do
-    LOG_FILE="logs/${JOB_NAME}_${arch}_${START_DT}.out"
+    LOG_FILE="logs/${START_DT}_${JOB_NAME}_${arch}.out"
     echo "install #$(( $NUM_JOBS+1 )): $LOG_FILE"
     sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
             --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" slurm/slurm-install-batch.sh\
