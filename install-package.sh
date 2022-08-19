@@ -37,7 +37,9 @@ for ((i=1; i<($NUM_JOBS+1); i++)); do
     # the background processes are indexed starting at 1
     # if a job is held up in the queue then the `wait`s after it won't start until it gets out
     wait %$i
-    if [ ! $? -eq 0 ]; then
+    if [ $? -eq 0 ]; then
+        echo "install #$i was a success!"
+    else
         echo "install #$i has failed!"
         ANY_FAILURES=1
     fi
