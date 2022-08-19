@@ -7,5 +7,5 @@
 echo "Loading spack environment..."
 source /modules/spack/share/spack/setup-env.sh
 
-echo spack --debug install --keep-stage -y $SPACK_PACKAGE_NAME
-spack --debug install --keep-stage -y $SPACK_PACKAGE_NAME
+echo spack install --verbose -y $SPACK_INSTALL_ARGS
+spack install --verbose -y $SPACK_INSTALL_ARGS
