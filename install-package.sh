@@ -33,6 +33,9 @@ for arch in $arches; do
     LOG_FILE="logs/${JOB_NAME}_${arch}_${RANDOM_STR}.out" # random so that logs don't overwrite
     echo "install #$(( $NUM_JOBS+1 ))"
     echo "$LOG_FILE"
+    echo sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
+            --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" ${EXTRA_SBATCH_ARGS}\
+            slurm/slurm-install-batch.sh
     sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
             --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" ${EXTRA_SBATCH_ARGS}\
             slurm/slurm-install-batch.sh & # & means run this in the background
