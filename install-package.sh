@@ -43,6 +43,7 @@ arches=$(<state/archlist.txt)
 if [ ! -z ${ARCH+x} ]; then
     arches=($ARCH)
 fi
+echo $arches
 for arch in $arches; do
     LOG_FILE="logs/${JOB_NAME}_${arch}_${RANDOM_STR}.out" # random so that logs don't overwrite
     echo "install #$(( $NUM_JOBS+1 ))"
