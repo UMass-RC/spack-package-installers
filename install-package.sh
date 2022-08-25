@@ -20,7 +20,12 @@ NUM_CORES=8
 TIME="1-0"
 PARTITION="building"
 
-SPACK_INSTALL_ARGS="$EXTRA_SPACK_ARGS $@"
+SPACK_INSTALL_ARGS=$@
+# if EXTRA_SPACK_ARGS is defined, prepend it to SPACK_INSTALL_ARGS
+if [ ! -z ${EXTRA_SPACK_ARGS+x} ]; then
+    SPACK_INSTALL_ARGS="$EXTRA_SPACK_ARGS $SPACK_INSTALL_ARGS"
+fi
+
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
 RANDOM_STR=$( echo $RANDOM | md5sum | head -c 5; echo;)
 
