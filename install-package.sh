@@ -1,17 +1,21 @@
 #!/bin/bash
 
 # USAGE
-# ./install-package [-g] [-a architecture] <spack package spec>
-# -g get a GPU for the job
+# ./install-package [-a architecture] [-f]  [-g] <spack package spec>
 # -a install for a specific architecture rather than read from state/archlist.txt
+# -f spack install --fresh
+# -g get a GPU for the job
+
 # you can also export EXTRA_SPACK_ARGS and they will be inserted
 # you can also export EXTRA_SBATCH_ARGS and they will be inserted
-# but don't source this script because it uses `exit`
+# if you want to export variables to this script, start another nested shell,
+# because `exit` will kill your shell
 
-while getopts ":ga:" option; do
+while getopts ":afg:" option; do
     case $option in
-        g) EXTRA_SBATCH_ARGS="$EXTRA_SBATCH_ARGS -G 1";;
         a) ARCH=$OPTARG;;
+        f) EXTRA_SPACK_ARGS="$EXTRA_SPACK_ARGS --fresh";;
+        g) EXTRA_SBATCH_ARGS="$EXTRA_SBATCH_ARGS -G 1";;
     esac
 done
 shift $(($OPTIND - 1)) # remove processed args from $@
