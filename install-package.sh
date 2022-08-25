@@ -13,9 +13,9 @@
 
 while getopts "a:fg" option; do
     case $option in
-        a) ARCH=$OPTARG;;
-        f) EXTRA_SPACK_ARGS="$EXTRA_SPACK_ARGS --fresh";;
-        g) EXTRA_SBATCH_ARGS="$EXTRA_SBATCH_ARGS -G 1";;
+        a) USER_ARCH=$OPTARG;;
+        f) EXTRA_SPACK_ARGS="$EXTRA_SPACK_ARGS --fresh";; # todo no duplicates
+        g) EXTRA_SBATCH_ARGS="$EXTRA_SBATCH_ARGS -G 1";; # todo no duplicates
     esac
 done
 shift $(($OPTIND - 1)) # remove processed args from $@
@@ -31,6 +31,7 @@ if [ ! -z ${EXTRA_SPACK_ARGS+x} ]; then
 fi
 
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
+JOB_NAME="${SPACK_INSTALL_ARGS//-/}" # remove dashes
 RANDOM_STR=$( echo $RANDOM | md5sum | head -c 5; echo;)
 
 echo "Loading spack environment..."
@@ -39,11 +40,10 @@ echo
 
 NUM_JOBS=0
 arches=$(<state/archlist.txt)
-# if $ARCH was defined using -a, then overwrite the arch list
-if [ ! -z ${ARCH+x} ]; then
-    arches=($ARCH)
+# if $USER_ARCH is defined, then overwrite the arch list
+if [ ! -z ${USER_ARCH+x} ]; then
+    arches=($USER_ARCH)
 fi
-echo $arches
 for arch in $arches; do
     LOG_FILE="logs/${JOB_NAME}_${arch}_${RANDOM_STR}.out" # random so that logs don't overwrite
     echo "install #$(( $NUM_JOBS+1 ))"
