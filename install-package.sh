@@ -19,7 +19,8 @@ while getopts "a:fg" option; do
     esac
 done
 shift $(($OPTIND - 1)) # remove processed args from $@
-$@=$(echo $@ | sed 's/ *$//g') # strip trailing whitespace
+$@=$(echo $$@ | sed 's/ *$//g') # strip trailing whitespace
+$@=$(echo $$@ | sed 's/^ *//g') # strip leading whitespace
 
 NUM_CORES=8
 TIME="1-0"
