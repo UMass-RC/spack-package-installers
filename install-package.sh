@@ -1,7 +1,19 @@
 #!/bin/bash
 
 # USAGE
-# ./install-package <spack package spec>
+# ./install-package [-g] [-a architecture] <spack package spec>
+# -g get a GPU for the job
+# -a install for a specific architecture rather than read from state/archlist.txt
+# you can also export EXTRA_SBATCH_ARGS and they will be inserted
+# but don't source this script because it uses `exit`
+
+while getopts ":ga:" option; do
+    case $option in
+        g) EXTRA_SBATCH_ARGS="$EXTRA_SBATCH_ARGS -G 1";;
+        a) ARCH=$OPTARG;;
+    esac
+done
+shift $(($OPTIND - 1)) # remove processed args from $@
 
 SPACK_INSTALL_ARGS=$@
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
@@ -12,7 +24,12 @@ source /modules/spack/share/spack/setup-env.sh
 echo
 
 NUM_JOBS=0
-for arch in $(<state/archlist.txt); do
+arches=$(<state/archlist.txt)
+# if $ARCH was defined using -a, then overwrite the arch list
+if [ ! -z ${ARCH+x} ]; then
+    arches=($ARCH)
+fi
+for arch in $arches; do
     LOG_FILE="logs/${JOB_NAME}_${arch}_${RANDOM_STR}.out" # random so that logs don't overwrite
     echo "install #$(( $NUM_JOBS+1 ))"
     echo "$LOG_FILE"
@@ -24,7 +41,7 @@ done
 
 echo
 echo "this might take a while. You can break out of this script and the installs will continue,"
-echo "but you will have to check by hand that the installs were successful, and do the post install cleanup by hand."
+echo "but you will have to manually check the installs were successful, and do the post install cleanup."
 echo "use tmux to detach a session and let it run in the background."
 echo
 
