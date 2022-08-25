@@ -11,7 +11,7 @@
 # if you want to export variables to this script, start another nested shell,
 # because `exit` will kill your shell
 
-while getopts ":afg:" option; do
+while getopts "a:fg" option; do
     case $option in
         a) ARCH=$OPTARG;;
         f) EXTRA_SPACK_ARGS="$EXTRA_SPACK_ARGS --fresh";;
