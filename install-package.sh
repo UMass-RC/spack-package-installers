@@ -8,7 +8,7 @@
 # -c skip the post install cleanup
 # -f spack install --fresh
 # -g get a GPU for the job
-# -w wait for the jobs to finish
+# -w don't wait for the jobs to finish
 
 # you can also export EXTRA_SPACK_ARGS and they will be inserted
 # you can also export EXTRA_SBATCH_ARGS and they will be inserted
@@ -16,14 +16,14 @@
 # because `exit` will kill your shell
 
 DO_CLEANUP=1
-DO_WAIT=""
+DO_WAIT="--wait"
 while getopts "a:cdfgw" option; do
     case $option in
         a) USER_ARCH=$OPTARG;;
         c) DO_CLEANUP=0;;
         f) EXTRA_SPACK_ARGS="$EXTRA_SPACK_ARGS --fresh";; # todo no duplicates
         g) EXTRA_SBATCH_ARGS="$EXTRA_SBATCH_ARGS -G 1";; # todo no duplicates
-        w) DO_WAIT="--wait";;
+        w) DO_WAIT="";;
     esac
 done
 shift $(($OPTIND - 1)) # remove processed args from $@
