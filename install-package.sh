@@ -3,27 +3,27 @@
 # this is a script that starts batch jobs and --wait's for them, and then cleans up after them.
 
 # USAGE
-# ./install-package [-a architecture] [-c] [-f]  [-g] <spack package spec>
+# ./install-package [-a architecture] [-c|f|g|w] <spack package spec>
 # -a install for a specific architecture rather than read from state/archlist.txt
 # -c skip the post install cleanup
 # -f spack install --fresh
 # -g get a GPU for the job
-# -w don't wait for the jobs to finish
+# -w wait for the jobs to finish
 
 # you can also export EXTRA_SPACK_ARGS and they will be inserted
 # you can also export EXTRA_SBATCH_ARGS and they will be inserted
 # if you want to export variables to this script, start another nested shell,
 # because `exit` will kill your shell
 
-NO_CLEANUP=0
-DO_WAIT="--wait"
+DO_CLEANUP=1
+DO_WAIT=""
 while getopts "a:cdfgw" option; do
     case $option in
         a) USER_ARCH=$OPTARG;;
-        c) NO_CLEANUP=1;;
+        c) DO_CLEANUP=0;;
         f) EXTRA_SPACK_ARGS="$EXTRA_SPACK_ARGS --fresh";; # todo no duplicates
         g) EXTRA_SBATCH_ARGS="$EXTRA_SBATCH_ARGS -G 1";; # todo no duplicates
-        w) DO_WAIT="";;
+        w) DO_WAIT="--wait";;
     esac
 done
 shift $(($OPTIND - 1)) # remove processed args from $@
@@ -108,6 +108,6 @@ if [ $ANY_FAILURES -eq 1 ]; then
     exit 1
 fi
 
-if [ NO_CLEANUP == 0 ]; then
+if [ DO_CLEANUP == 1 ]; then
     ./post-install-cleanup.sh
 fi
