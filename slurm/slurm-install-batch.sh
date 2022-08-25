@@ -1,7 +1,4 @@
 #!/bin/bash
-#SBATCH -c 8  # Number of Cores per Task
-#SBATCH -t 1-0  # Job time limit
-#SBATCH -p building
 
 echo jobid $SLURM_JOB_ID on host $(hostname) with arch $(/modules/spack/bin/spack arch) by user $(whoami) on $(date)
 

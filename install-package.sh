@@ -15,6 +15,10 @@ while getopts ":ga:" option; do
 done
 shift $(($OPTIND - 1)) # remove processed args from $@
 
+NUM_CORES=8
+TIME="1-0"
+PARTITION="building"
+
 SPACK_INSTALL_ARGS=$@
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
 RANDOM_STR=$( echo $RANDOM | md5sum | head -c 5; echo;)
@@ -35,9 +39,11 @@ for arch in $arches; do
     echo "$LOG_FILE"
     echo sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
             --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" ${EXTRA_SBATCH_ARGS}\
+            --partition=$PARTITION --cpus-per-task=$NUM_CORES --time=$TIME\
             slurm/slurm-install-batch.sh
     sbatch --wait --job-name="build_$JOB_NAME" --constraint=$arch --output=$LOG_FILE \
             --export=SPACK_INSTALL_ARGS="$SPACK_INSTALL_ARGS" ${EXTRA_SBATCH_ARGS}\
+            --partition=$PARTITION --cpus-per-task=$NUM_CORES --time=$TIME\
             slurm/slurm-install-batch.sh & # & means run this in the background
     ((NUM_JOBS++))
 done
