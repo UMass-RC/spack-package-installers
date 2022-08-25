@@ -19,14 +19,15 @@ while getopts "a:fg" option; do
     esac
 done
 shift $(($OPTIND - 1)) # remove processed args from $@
-$@=$(echo $$@ | sed 's/ *$//g') # strip trailing whitespace
-$@=$(echo $$@ | sed 's/^ *//g') # strip leading whitespace
+ALL_ARGS=$@
+ALL_ARGS=$(echo $ALL_ARGS | sed 's/ *$//g') # strip trailing whitespace
+ALL_ARGS=$(echo $ALL_ARGS | sed 's/^ *//g') # strip leading whitespace
 
 NUM_CORES=8
 TIME="1-0"
 PARTITION="building"
 
-SPACK_INSTALL_ARGS=$@
+SPACK_INSTALL_ARGS=$ALL_ARGS
 # if EXTRA_SPACK_ARGS is defined, prepend it to SPACK_INSTALL_ARGS
 if [ ! -z ${EXTRA_SPACK_ARGS+x} ]; then
     SPACK_INSTALL_ARGS="$EXTRA_SPACK_ARGS $SPACK_INSTALL_ARGS"
