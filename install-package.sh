@@ -4,6 +4,7 @@
 # ./install-package [-g] [-a architecture] <spack package spec>
 # -g get a GPU for the job
 # -a install for a specific architecture rather than read from state/archlist.txt
+# you can also export EXTRA_SPACK_ARGS and they will be inserted
 # you can also export EXTRA_SBATCH_ARGS and they will be inserted
 # but don't source this script because it uses `exit`
 
@@ -19,7 +20,7 @@ NUM_CORES=8
 TIME="1-0"
 PARTITION="building"
 
-SPACK_INSTALL_ARGS=$@
+SPACK_INSTALL_ARGS="$EXTRA_SPACK_ARGS $@"
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
 RANDOM_STR=$( echo $RANDOM | md5sum | head -c 5; echo;)
 
