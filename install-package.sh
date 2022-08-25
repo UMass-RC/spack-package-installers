@@ -34,8 +34,8 @@ JOB_NAME="${SPACK_INSTALL_ARGS//-}" # remove dashes
 JOB_NAME="${SPACK_INSTALL_ARGS// /_}" # find and replace spaces with underscores
 RANDOM_STR=$( echo $RANDOM | md5sum | head -c 5; echo;)
 
-echo $JOB_NAME
-exit
+#echo $JOB_NAME
+#exit
 
 echo "Loading spack environment..."
 source /modules/spack/share/spack/setup-env.sh
