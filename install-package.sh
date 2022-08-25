@@ -71,7 +71,7 @@ for arch in $arches; do
 done
 
 # if we're not waiting
-if [ ! $DO_WAIT -eq "--wait" ]; then
+if [[ ! $DO_WAIT -eq "--wait" ]]; then
     exit
 fi
 
