@@ -8,7 +8,7 @@
 # -c skip the post install cleanup
 # -f spack install --fresh
 # -g get a GPU for the job
-# -w don't wait for the jobs to finish
+# -w don't wait for the jobs to finish (this also disables post install cleanup)
 
 # you can also export EXTRA_SPACK_ARGS and they will be inserted
 # you can also export EXTRA_SBATCH_ARGS and they will be inserted
