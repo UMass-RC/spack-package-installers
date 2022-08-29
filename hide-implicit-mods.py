@@ -8,6 +8,9 @@ import json
 hide implicit spack modules from lmod
 """
 
+MODULERC="/modules/modulefiles/.modulerc"
+SPACK_MODULEFILE_DIR="/modules/spack/share/spack/modules/linux-ubuntu20.04-x86_64/"
+
 def remove_empty_lines(string: str) -> str:
     return os.linesep.join([line for line in string.splitlines() if line])
 
@@ -97,13 +100,27 @@ def main():
     modules_json = command.stdout
     modules_json_parser = json.loads(modules_json)
     new_modulerc_text = ''
-    modulerc_original_text = ''
-    with open("/modules/modulefiles/.modulerc", 'r') as modulerc:
-        modulerc_original_text = modulerc.read()
+    original_modulerc_text = ''
+    with open(MODULERC, 'r', encoding='utf-8') as modulerc:
+        original_modulerc_text = modulerc.read()
     for module in modules_json_parser:
         lmod_name = f"{module['name']}/{module['version']}"
+        # custom spack 'projections' (modulefile names) don't fit this format
+        if not os.path.exists(SPACK_MODULEFILE_DIR+lmod_name):
+            old_lmod_name = lmod_name
+            print(f"standard modulefile name {old_lmod_name} not found, searching for specific one...")
+            find_lmod_name = ShellRunner(f"spack module tcl find /{module['hash']}", 60)
+            find_lmod_name.run()
+            if not find_lmod_name.success:
+                print(f"can't find modulefile for {old_lmod_name}")
+                print(find_lmod_name)
+                continue
+            lmod_name = find_lmod_name.stdout
+            if not os.path.exists(SPACK_MODULEFILE_DIR+lmod_name):
+                print(f"can't find modulefile for {old_lmod_name}")
+                continue
         hide_this_module = f"hide-version {lmod_name}\n"
-        if hide_this_module not in modulerc_original_text:
+        if (hide_this_module not in original_modulerc_text) and (hide_this_module not in new_modulerc_text):
             new_modulerc_text = new_modulerc_text + hide_this_module
     if new_modulerc_text:
         print(new_modulerc_text)
